@@ -1,0 +1,80 @@
+/* Shop.css */
+.shop-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Full viewport height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .shop-image-wrapper {
+    position: relative;
+    border-radius: 60px;
+    width: 100%;
+ 
+    height: auto;
+  }
+  
+  .shop-image {
+    width: 80vw;
+    height: 70vh;
+
+    object-fit: cover;
+    padding: 10px;
+    border-radius: 60px; /* Optional: Rounded corners for the image */
+  }
+  
+  .shop-content {
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .shop-title {
+    font-size: 1.5rem;
+  
+    margin-bottom: 10px;
+  }
+  
+  .shop-description {
+    font-size: 0.9rem;
+    margin-bottom: 20px;
+  }
+  
+  .shop-link {
+    display: inline-block;
+    font-size: 1rem;
+  color: white;
+    text-decoration: underline;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #ff4081; 
+  }
+  
+  .shop-link:hover {
+  
+    color: black;
+    transition: background-color 0.3s ease-in-out;
+    background-color: #ee105a; 
+    
+  }
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  }
+  
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  

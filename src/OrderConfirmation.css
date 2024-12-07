@@ -1,0 +1,134 @@
+.confirmation-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  margin-top: 100px;
+  width: 90%; /* Make the width fluid */
+}
+
+.confirmation-message {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.tick-icon {
+  font-size: 4rem;
+  background-color: green;
+  color: white;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin: 0 auto 1rem auto; /* Center icon horizontally */
+}
+
+.confirmation-message h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.confirmation-message p {
+  font-size: 18px;
+  color: #555;
+}
+
+.border-box {
+  border: 2px dotted #ccc;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  background-color: #fff;
+}
+
+.summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.order-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.order-details li {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.order-total {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem 0;
+  font-weight: bold;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  .confirmation-container {
+    padding: 1rem; /* Reduce padding */
+    margin-top: 50px; /* Adjust margin */
+  }
+
+  .tick-icon {
+    height: 80px; /* Smaller icon */
+    width: 80px; /* Smaller icon */
+    font-size: 3rem; /* Smaller font size */
+  }
+
+  .confirmation-message h2 {
+    font-size: 20px; /* Smaller header font size */
+  }
+
+  .confirmation-message p {
+    font-size: 16px; /* Smaller paragraph font size */
+  }
+
+  .summary-item {
+    flex-direction: column; /* Stack items vertically */
+    align-items: flex-start; /* Align to the left */
+  }
+
+  .order-details li {
+    flex-direction: column; /* Stack details vertically */
+    align-items: flex-start; /* Align to the left */
+  }
+
+  .order-total {
+    flex-direction: column; /* Stack total vertically */
+    align-items: flex-start; /* Align to the left */
+  }
+}
+
+@media (max-width: 480px) {
+  .confirmation-container {
+    padding: 0.5rem; /* Further reduce padding */
+  }
+
+  .tick-icon {
+    height: 60px; /* Smaller icon */
+    width: 60px; /* Smaller icon */
+    font-size: 2.5rem; /* Smaller font size */
+  }
+
+  .confirmation-message h2 {
+    font-size: 18px; /* Smaller header font size */
+  }
+
+  .confirmation-message p {
+    font-size: 14px; /* Smaller paragraph font size */
+  }
+
+  .summary-item {
+    margin-bottom: 0.25rem; /* Smaller margins */
+  }
+
+  .order-details li {
+    padding: 0.25rem 0; /* Smaller padding */
+  }
+
+  .order-total {
+    padding: 0.5rem 0; /* Smaller padding */
+  }
+}

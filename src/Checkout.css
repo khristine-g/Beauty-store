@@ -1,0 +1,167 @@
+.checkout-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 2rem;
+  gap: 2rem;
+  background-color: #f9f9f9;
+  font-family: Arial, sans-serif;
+  flex-wrap: wrap; /* Adjust layout on smaller screens */
+}
+
+.billing-details, 
+.checkout-summary {
+  flex: 1;
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1rem; /* Add margin for separation */
+}
+
+.checkout-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.check-form {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.check-form label {
+  grid-column: span 2;
+  color: #333;
+  margin-bottom: 0.3rem;
+}
+
+.check-form input,
+.check-form textarea,
+.check-form select {
+  grid-column: span 2;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button[type="button"] {
+  grid-column: span 2;
+  padding: 0.7rem;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="button"]:hover {
+  background-color: #218838;
+}
+
+.check-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.check-list li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #ccc;
+}
+
+.check-img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  margin-right: 1rem;
+}
+
+.check-name {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+}
+
+.check-price {
+  font-size: 14px;
+  color: #777;
+}
+
+.check-quantity {
+  font-size: 14px;
+}
+
+.total-price {
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 1rem;
+}
+
+.payment-options {
+  margin-top: 1rem;
+}
+
+.payment-options div {
+  margin-bottom: 1rem;
+}
+
+.payment-options label {
+  font-weight: 600;
+  margin-left: 0.5rem;
+}
+
+.privacy-notice {
+  margin-top: 2rem;
+  font-size: 14px;
+  color: #555;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .checkout-container {
+    flex-direction: column; /* Stack billing and summary vertically */
+    padding: 1rem;
+    gap: 1rem;
+  }
+
+  .check-form {
+    grid-template-columns: 1fr; /* Single column on small screens */
+  }
+
+  button[type="button"] {
+    grid-column: span 1; /* Single column on small screens */
+  }
+
+  .checkout-summary, 
+  .billing-details {
+    padding: 1rem;
+    box-shadow: none;
+  }
+
+  .check-img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .check-name {
+    font-size: 14px;
+  }
+
+  .check-price, 
+  .check-quantity {
+    font-size: 12px;
+  }
+
+  .total-price {
+    font-size: 16px;
+  }
+
+  .payment-options p {
+    font-size: 13px;
+  }
+}

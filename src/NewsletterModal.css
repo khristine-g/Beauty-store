@@ -1,0 +1,89 @@
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.5); 
+    
+}
+.modal-header{
+
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    margin-left: 100px;
+  margin-top: 20px;
+}
+.modal-paragraph{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.modal-content {
+    display: flex;
+  
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 800px;
+ 
+    width: 90%; /* Ensure it fits well on smaller screens */
+   
+}
+
+.modal-text {
+    flex: 1; /* Take remaining space */
+    padding-left: 20px; /* Space between image and text */
+    background: #fff;
+    position: relative;
+    
+}
+
+.modal-image {
+    flex: 0 0 50%; /* Fix the width to 50% of the modal */
+  
+}
+
+.modal-image img {
+    width: 100%;
+    height: 70%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: transparent;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #000; 
+    z-index: 1001; /* Ensures it's above other content */
+}
+.close-button:hover{
+    background-color: white;
+}
+
+input {
+    padding: 10px;
+    
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 20px;
+ 
+}
+
+.join-button {
+    padding: 10px 15px;
+    background: black;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px;
+}
+.join-button:hover{
+    background-color: #ff4081;
+}

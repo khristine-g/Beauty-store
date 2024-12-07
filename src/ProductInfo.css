@@ -1,0 +1,109 @@
+.product-info {
+  display: flex;
+  flex-direction: row; /* Side-by-side layout */
+  justify-content: center; /* Center the layout horizontally */
+  align-items: center; /* Align content vertically */
+  min-height: 100vh; /* Full viewport height for centering */
+  background-color: #f9f9f9; /* Light background for contrast */
+  gap: 40px; /* Space between the image and details */
+  padding: 20px; /* Add padding for better spacing */
+}
+
+.card {
+  flex: 1; /* Allow the image to take up space proportionally */
+  max-width: 500px; /* Restrict maximum width of the card */
+  background: white;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.product-img {
+  width: 100%; /* Responsive image */
+  height: auto; /* Maintain aspect ratio */
+  border-radius: 12px;
+  object-fit: cover; /* Ensure the image fills the area */
+}
+
+.product-details {
+  flex: 1; /* Allow the details to take up space proportionally */
+  display: flex;
+  flex-direction: column; /* Stack details vertically */
+  justify-content: center; /* Center details vertically */
+  max-width: 500px; /* Restrict maximum width of details */
+}
+
+.card-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+}
+
+.price {
+  font-size: 1rem;
+  font-weight: 700;
+  color: black; /* Eye-catching price color */
+  margin-bottom: 20px;
+}
+
+.description {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #555;
+  margin-bottom: 20px;
+  text-align: justify; /* Improve readability */
+}
+
+.cart-btn {
+  background-color: black; /* Keep the black button */
+  color: white;
+  padding: 15px 0;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 30px; /* Rounded button */
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px; /* Restrict button width */
+  margin-top: 20px;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.cart-btn:hover {
+  background-color: #333; /* Darker shade on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+.info-back-btn {
+  background-color: #333;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 50px;
+  height: 40px;
+  margin-top: 20px;
+  font-size: 1.2rem;
+  transition: background 0.3s ease;
+}
+
+.info-back-btn:hover {
+  background-color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .product-info {
+    flex-direction: column; /* Stack image and details vertically */
+    padding: 10px;
+    gap: 20px;
+  }
+
+  .card,
+  .product-details {
+    max-width: 100%; /* Full width on smaller screens */
+  }
+}

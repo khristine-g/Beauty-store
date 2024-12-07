@@ -1,0 +1,154 @@
+/* Styles based on the Signup page design */
+.login-container {
+  display: flex;
+  height: 100vh;
+  background-color: white; /* Matching the white background */
+  color: black;
+  font-family: 'Roboto', sans-serif;
+}
+
+.login-welcome {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 20px;
+  background-color:  #f0f0f0;
+  margin: 20px;
+  border-radius: 10px;
+}
+
+.login-welcome h1 {
+  font-size: 3.5rem;
+  letter-spacing: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  color: black;
+}
+
+.login-welcome p {
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+  color: #ccc;
+}
+
+.login-form-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 40vw;
+  padding: 40px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.login-form h2 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #333;
+}
+
+.form-control {
+  width: 100%;
+  padding: 12px;
+  border: 2px solid #333;
+  border-radius: 6px;
+  background-color: #f9f9f9;
+  transition: border-color 0.3s, background-color 0.3s;
+}
+
+.form-control:focus {
+  border-color: #333;
+  background-color: #fff;
+  outline: none;
+}
+
+.login-btn {
+  background-color: #000;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 6px;
+  padding: 12px;
+  cursor: pointer;
+  width: 100%;
+  font-weight: bold;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.login-btn:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+.login-btn:active {
+  transform: scale(0.98);
+}
+
+
+ 
+
+/* Add media query for smaller screens */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column; /* Stack the welcome and form sections */
+    height: auto; /* Allow auto height for smaller screens */
+  }
+
+  .login-welcome {
+    padding: 20px;
+  }
+
+  .login-welcome h1 {
+    font-size: 2.5rem; /* Smaller font size for the title */
+    letter-spacing: 2px; /* Adjust letter spacing */
+  }
+
+  .login-welcome p {
+    font-size: 1rem; /* Adjust paragraph size */
+  }
+
+  .login-form-container {
+    width: 100%; /* Allow full width for the form container */
+    padding: 20px; /* Add some padding for better spacing */
+  }
+
+  .login-form {
+    max-width: 90vw; /* Allow form to use more of the viewport width */
+    padding: 20px; /* Reduce padding for smaller screens */
+  }
+
+  .login-form h2 {
+    font-size: 1.5rem; /* Adjust heading size */
+  }
+
+  .form-control {
+    padding: 10px; /* Reduce padding for smaller input fields */
+  }
+
+  .login-btn {
+    padding: 10px; /* Reduce padding for smaller buttons */
+  }
+}
+
