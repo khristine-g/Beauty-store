@@ -88,4 +88,3 @@ function ProductInfo({ setCart }) {
 }
 
 export default ProductInfo;
-

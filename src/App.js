@@ -15,6 +15,8 @@ import ProductInfo from './components/ProductInfo';
 import useScrollAnimation from './components/useScrollAnimation';
 import AllProducts from './components/AllProducts';
 import OrderConfirmation from './components/OrderConfirmation';
+import { products } from './components/Data.js'; // Import products from data.js
+import { items } from './components/Data2.js'; // Import additional products from data2.js
 import './App.css';
 
 // Example category data (replace with actual data)
@@ -36,6 +38,7 @@ function App() {
     setCart(storedCart ? JSON.parse(storedCart) : []);
   }, []);
 
+
   const handleSelectCategory = (categoryId) => {
     const category = categories.find(cat => cat.id === categoryId); // Ensure categories are accessible
     setSelectedCategory(category);
@@ -56,54 +59,47 @@ function App() {
     localStorage.setItem('cart', JSON.stringify(updatedCart));
   };
 
-  const handleSearch = (searchResults) => {
-    setSearchResults(searchResults);
+ 
+  const handleSearchResults = (filteredProducts) => {
+    setSearchResults(filteredProducts); // Store filtered products in state
   };
+
 
   return (
     <Router>
-      <div className="App">
-        <Navbar onSearch={handleSearch} />
-        <Routes>
-          <Route 
-            path="/" 
-            element={<Home onSelectCategory={handleSelectCategory} />} 
-          />
-          <Route
-            path="/products"
-            element={
-              <ProductList
-                selectedCategory={selectedCategory}
-                cart={cart}
-                setCart={setCart}
-                removeFromCart={removeFromCart}
-                searchResults={searchResults}
-              />
-            }
-          />
-          <Route path="/categories" element={<Category onSelectCategory={handleSelectCategory} />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route 
-            path="/cart" 
-            element={<Cart 
-              cart={cart} 
-              onRemoveFromCart={removeFromCart} 
-              onUpdateQuantity={handleUpdateQuantity} 
-            />} 
-          />
-           <Route path="/products/:categoryId" element={<CategoryProducts />} />
-      
-          <Route path="/product-info" element={<ProductInfo setCart={setCart} />} />
-          <Route path="/checkout" element={<Checkout cart={cart} />} />
-          <Route path="/order-confirmation" element={<OrderConfirmation />} />
-          <Route path="/all-products" element={<AllProducts />} />
-          <Route path="/trending-products" element={<TrendingProducts />} />
-    
+  <div className="App">
+    <Navbar onSearch={handleSearchResults} />
+    <div className="product-list">
+      {searchResults.length > 0 ? (
+        searchResults.map((product) => (
+          <div key={product.id} className="product-item">
+            <h3>{product.name}</h3>
+            <img src={product.image} alt={product.name} />
+            <p>{product.price}</p>
+          </div>
+        ))
+      ) : (
+        <p>No products found</p>
+      )}
+    </div>
 
-        </Routes>
-      </div>
-    </Router>
+    <Routes>
+      <Route path="/" element={<Home onSelectCategory={handleSelectCategory} />} />
+      <Route path="/products" element={<ProductList selectedCategory={selectedCategory} cart={cart} setCart={setCart} removeFromCart={removeFromCart} searchResults={searchResults} />} />
+      <Route path="/categories" element={<Category onSelectCategory={handleSelectCategory} />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/cart" element={<Cart cart={cart} onRemoveFromCart={removeFromCart} onUpdateQuantity={handleUpdateQuantity} />} />
+      <Route path="/products/:categoryId" element={<CategoryProducts />} />
+      <Route path="/product-info" element={<ProductInfo setCart={setCart} />} />
+      <Route path="/checkout" element={<Checkout cart={cart} />} />
+      <Route path="/order-confirmation" element={<OrderConfirmation />} />
+      <Route path="/all-products" element={<AllProducts />} />
+      <Route path="/trending-products" element={<TrendingProducts />} />
+    </Routes>
+  </div>
+</Router>
+
   );
 }
 

@@ -49,6 +49,7 @@ function Offer({ setCart }) {
   const handleCloseModal = () => setShowModal(false);
 
   return (
+    <div className="animate-on-scroll">
     <div className="offer-container">
       <div className="offer-card">
         {/* Product Image */}
@@ -85,6 +86,7 @@ function Offer({ setCart }) {
           </Button>
         </Modal.Footer>
       </Modal>
+    </div>
     </div>
   );
 }

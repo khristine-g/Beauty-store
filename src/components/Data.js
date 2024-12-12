@@ -1,3 +1,4 @@
+//Data.js
 const categories = [
     { id: 1, name: 'Skincare', image: 'https://hips.hearstapps.com/vader-prod.s3.amazonaws.com/1671638859-41n2xR5IlLL._SL500_.jpg?crop=1xw:1xh;center,top&resize=980:*' },
     { id: 2, name: 'Makeup', image: 'https://www.mentedcosmetics.com/cdn/shop/products/eyeshadow2020_1.jpg?v=1662647787' },

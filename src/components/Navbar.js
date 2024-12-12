@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from 'react-router-dom';
-import { FaSearch, FaBars, FaTimes,  FaShoppingBag } from 'react-icons/fa'; // Import icons
+import { FaSearch, FaBars, FaTimes, FaShoppingBag } from 'react-icons/fa'; // Import icons
+import { products } from './Data.js'; // Import products from data.js
+import { items } from './Data2.js'; // Import additional products from data2.js
 import '../Navbar.css';
 
 const Navbar = ({ onSearch }) => {
@@ -8,46 +10,47 @@ const Navbar = ({ onSearch }) => {
     const [menuOpen, setMenuOpen] = useState(false); // State for toggle menu
     const [searchInput, setSearchInput] = useState('');
 
+    // Handle search input change
     const handleInputChange = (e) => {
         setSearchInput(e.target.value);
     };
 
-    const handleSearch = async (e) => {
+    // Handle search and filter products locally
+    const handleSearch = (e) => {
         e.preventDefault();
+        
+        // Combine the two product arrays
+        const allProducts = [...products, ...items];
 
-        // Make a GET request to the Rails backend using fetch
-        try {
-            const response = await fetch(`http://localhost:3000/products/search?search=${encodeURIComponent(searchInput)}`);
+        // Filter products by name
+        const filteredProducts = allProducts.filter(product =>
+            product.name.toLowerCase().includes(searchInput.toLowerCase())
+        );
 
-            if (!response.ok) {
-                throw new Error(`Network response was not ok: ${response.statusText}`);
-            }
+        // Pass the filtered products to the parent component
+        onSearch(filteredProducts);
 
-            const data = await response.json();
-            onSearch(data); // Pass the search results to the parent component
-            setSearchInput(''); // Clear the input after search
-            setMenuOpen(false); // Close the menu after searching
-        } catch (error) {
-            console.error('Error fetching search results:', error);
-            alert('Error fetching search results. Please try again.');
-        }
+        setSearchInput(''); // Clear the input after search
+        setMenuOpen(false); // Close the menu after searching
     };
 
-    const handleToggle = () => {
-        setMenuOpen(!menuOpen); // Toggle the menu
+    // Handle scroll and navbar styling
+    const handleScroll = () => {
+        setScrolled(window.scrollY > 50);
     };
 
-    useEffect(() => {
-        const handleScroll = () => {
-            setScrolled(window.scrollY > 50);
-        };
-
+    React.useEffect(() => {
         window.addEventListener('scroll', handleScroll);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    // Handle mobile menu toggle
+    const handleToggle = () => {
+        setMenuOpen(!menuOpen); // Toggle the menu
+    };
 
     return (
         <nav className={`beauty-navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
