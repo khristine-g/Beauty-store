@@ -45,7 +45,7 @@
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 10px;
+  gap: 25px;
   margin-top: 35px;
 
 }
@@ -60,7 +60,7 @@
   letter-spacing: 0.5px;
   font-family: 'Poppins', sans-serif;
   position: relative;
-  padding: 5px 0;
+  padding: 10px 0;
   transition: color 0.3s ease;
  
 }
