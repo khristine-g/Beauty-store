@@ -33,10 +33,11 @@
 /* Individual button styling */
 .category-button {
   padding: 0.8rem 1.5rem;
-  border: 1px solid #333;
-  border-radius: 10px;
-  background-color: #333;
-  color: white;
+
+  border-radius: 30px;
+  background: #f3f3f3;
+  border: 1px solid #ddd;
+  color: #555;
   font-size: 1rem;
   font-weight: bold;
   cursor: pointer;
