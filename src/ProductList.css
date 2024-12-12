@@ -19,6 +19,7 @@
 }
 
 .product-card {
+  position: relative;
   background-color: white;
   border-radius: 10px;
   margin-bottom: 80px;
@@ -54,6 +55,29 @@
   font-size: 1rem;
   color: #888;
   font-weight: 500;
+}
+.product-list-quick-add-btn {
+  display: none;
+  position: absolute;
+  margin-bottom: 5px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  width: 200px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  bottom:10%;
+}
+
+/* Show the button on hover */
+.product-card:hover .product-list-quick-add-btn {
+  display: block; /* Show button on hover */
+}
+
+.product-list-quick-add-btn:hover {
+  background-color: #555; /* Button hover effect */
 }
 .view-all-button-container {
   display: flex;

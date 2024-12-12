@@ -39,13 +39,19 @@ const Category = () => {
               className="category-card"
               onClick={() => handleCategoryClick(category)} // Handle category image click
             >
+             
               <img
                 src={category.image}
                 alt={category.name}
                 className="category-image"
               />
+              <p className="category-name">{category.name}</p> 
+                  
+             
             </div>
+            
           ))}
+     
         </div>
       </div>
     </div>

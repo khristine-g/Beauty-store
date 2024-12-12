@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { Modal, Button } from 'react-bootstrap';  // Import Bootstrap Modal and Button
 import '../Offer.css'; // Import styles
+import candleImage1 from '../images/candle1.jpg';
 
 function Offer({ setCart }) {
   const product = {
     id: 1,  // Add a unique ID to the product
     name: 'Home Lights Scented Candle',
-    image: 'https://i.ebayimg.com/images/g/MfAAAOSwfdxm7QYK/s-l1200.jpg',
+    image: candleImage1,
     description: 'Transform your space into a haven of tranquility with our Osmanthus & Amber Scented Candle. Hand-poured with care, this candle is crafted from eco-friendly soy wax and infused with a blend of soothing lavender, warm vanilla, and hints of fresh eucalyptus. The delicate fragrance fills the room with a calming ambiance, perfect for unwinding after a long day or setting the mood for cozy evenings. With its clean burn and minimalist design, this candle not only soothes your senses but also enhances your décor. Light up Serenity and let its gentle glow and comforting aroma bring peace to your world.',
     previousPrice: 35.99,
     newPrice: 27.99,
