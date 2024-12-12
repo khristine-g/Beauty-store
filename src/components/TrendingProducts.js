@@ -19,23 +19,33 @@ const TrendingProducts = ({ setCart }) => {
 
   const handleQuickAdd = (product) => {
     try {
+      // Retrieve and parse the stored cart
       const storedCart = localStorage.getItem('cart');
       const parsedCart = storedCart ? JSON.parse(storedCart) : [];
-
-      const existingProductIndex = parsedCart.findIndex((cartProduct) => cartProduct.id === product.id);
-
+  
+      // Check if the product already exists in the cart
+      const existingProductIndex = parsedCart.findIndex(
+        (cartProduct) => cartProduct.id === product.id
+      );
+  
       if (existingProductIndex !== -1) {
+        // Update the quantity if it exists
         parsedCart[existingProductIndex].quantity += 1;
       } else {
+        // Add the product if it doesn't exist
         parsedCart.push({ ...product, quantity: 1 });
       }
-
+  
+      // Update localStorage
       localStorage.setItem('cart', JSON.stringify(parsedCart));
+  
+      // Update the cart state
       setCart(parsedCart);
     } catch (error) {
       console.error('Error updating cart:', error);
     }
   };
+  
 
   return (
     <div className="animate-on-scroll">
