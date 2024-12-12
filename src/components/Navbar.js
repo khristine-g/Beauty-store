@@ -54,15 +54,17 @@ const Navbar = ({ onSearch }) => {
 
     return (
         <nav className={`beauty-navbar ${scrolled ? 'navbar-scrolled' : ''}`}>
+            {/* Hamburger Menu Icon for mobile */}
+            <div className="navbar-toggle" onClick={handleToggle}>
+                {menuOpen ? <FaTimes /> : <FaBars />}
+            </div>
+
             <div className="beauty-navbar-brand">
                 <FaShoppingBag /> {/* Logo Icon */}
                 TRUE BEAUTY
             </div>
 
-            {/* Hamburger Menu Icon for mobile */}
-            <div className="navbar-toggle" onClick={handleToggle}>
-                {menuOpen ? <FaTimes /> : <FaBars />}
-            </div>
+            
 
             {/* Menu Links - Toggled based on menuOpen state */}
             <ul className={`navbar-links ${menuOpen ? 'active' : ''}`}>
@@ -78,7 +80,7 @@ const Navbar = ({ onSearch }) => {
                     <input
                         className="search-input"
                         type="search"
-                        placeholder="Search"
+                        placeholder="Search all products"
                         aria-label="Search"
                         value={searchInput}
                         onChange={handleInputChange}
