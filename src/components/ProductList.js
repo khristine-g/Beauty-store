@@ -11,9 +11,16 @@ const ProductList = ({ selectedCategory }) => {
     ? products.filter((product) => product.categoryId === selectedCategory.id)
     : products;  // Show all products if no category is selected
 
+  // Only show the first 12 products
+  const productsToDisplay = filteredProducts.slice(0, 12);
+
   const handleProductClick = (product) => {
     // Navigate to the ProductInfo component with the selected product as state
     navigate('/product-info', { state: { product } });
+  };
+
+  const handleViewAll = () => {
+    navigate('/all-products'); // Navigate to the full products page
   };
 
   return (
@@ -25,8 +32,8 @@ const ProductList = ({ selectedCategory }) => {
         The World's Premium Brands In One Destination.
       </p>
       <div className="products-container">
-        {filteredProducts.length > 0 ? (
-          filteredProducts.map((product) => (
+        {productsToDisplay.length > 0 ? (
+          productsToDisplay.map((product) => (
             <div key={product.id} className="product-card" onClick={() => handleProductClick(product)}>
               <img
                 src={product.image}
@@ -42,6 +49,13 @@ const ProductList = ({ selectedCategory }) => {
         ) : (
           <p>No products found in this category.</p>
         )}
+      </div>
+
+      {/* View All button */}
+      <div className="view-all-button-container">
+        <button className="view-all-button" onClick={handleViewAll}>
+          View All Products
+        </button>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import '../ProductList.css'; // Reuse the same CSS as ProductList
 
-function TrendingProducts({ cart, setCart, removeFromCart }) {
+function Offers({ cart, setCart, removeFromCart }) {
   const [trendingProducts, setTrendingProducts] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const navigate = useNavigate();
@@ -87,7 +87,7 @@ function TrendingProducts({ cart, setCart, removeFromCart }) {
   );
 }
 
-export default TrendingProducts;
+export default Offers;
 
 
 

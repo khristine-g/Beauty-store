@@ -8,7 +8,7 @@
 
 /* Title styling */
 .category-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
   color: #333;
   margin-bottom: 1.5rem;
@@ -16,7 +16,7 @@
 
 /* Subheader styling */
 .category-subheader {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #666;
   margin-bottom: 2rem;
 }
@@ -32,7 +32,7 @@
 
 /* Individual button styling */
 .category-button {
-  padding: 0.5rem 1rem;
+  padding: 0.8rem 1.5rem;
   border: 1px solid #333;
   border-radius: 10px;
   background-color: #333;
@@ -48,15 +48,16 @@
   color: white;
 }
 
-/* Grid for categories - display all categories in one row by default */
+/* Grid for categories - 1 row on large screens, 3 per row on smaller screens */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* 5 categories per row */
-  gap: 10px; /* Reduced gap between cards */
+  grid-template-columns: repeat(6, 1fr); /* Default: 6 categories per row on large screens */
+  gap: 1.5rem; /* Increased gap between cards */
   justify-content: center;
-  max-width: 100%; /* Allow grid to take full width */
-  margin: 0 auto; /* Center the grid */
-  height: 30vh;
+  max-width: 100%;
+  margin: 0 auto;
+  height: auto;
+  padding-bottom: 2rem;
 }
 
 /* Card styling */
@@ -67,7 +68,7 @@
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 320px; /* Increased card width */
+  max-width: 350px; /* Set a max width for each card */
   margin: 0 auto;
 }
 
@@ -79,17 +80,57 @@
 /* Image styling */
 .category-image {
   width: 100%;
-  height: auto; /* Increased height */
+  height: 200px; /* Set fixed height for category images */
   object-fit: cover;
   border-radius: 12px;
 }
 
-/* Responsive design for small screens - 2 categories per row */
-@media (max-width: 768px) {
+/* Responsive design for smaller screens */
+@media (max-width: 1024px) {
   .category-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 categories per row on smaller screens */
+    grid-template-columns: repeat(3, 1fr); /* 3 categories per row on medium screens */
   }
 }
+
+@media (max-width: 768px) {
+  .category-grid {
+    grid-template-columns: repeat(2, 1fr); /* 3 categories per row on smaller screens */
+  }
+
+  .category-title {
+    font-size: 2rem; /* Smaller font size on small screens */
+  }
+
+  .category-subheader {
+    font-size: 1rem; /* Smaller font size on small screens */
+  }
+
+  .category-button {
+    font-size: 0.9rem; /* Smaller button text */
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .category-grid {
+    grid-template-columns: 1fr; /* 1 category per row on very small screens */
+  }
+
+  .category-title {
+    font-size: 1.8rem; /* Further reduced font size for very small screens */
+  }
+
+  .category-subheader {
+    font-size: 0.9rem; /* Further reduced font size */
+  }
+
+  .category-button {
+    font-size: 0.8rem; /* Even smaller button text */
+    padding: 0.5rem;
+  }
+}
+
+/* Scroll animation */
 .animate-on-scroll {
   opacity: 0;
   transform: translateY(150px);
@@ -100,7 +141,3 @@
   opacity: 1;
   transform: translateY(0);
 }
-
-
-
-

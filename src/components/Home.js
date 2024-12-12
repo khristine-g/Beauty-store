@@ -61,8 +61,9 @@ const Home = ({ onSelectCategory }) => {
       <Category onSelectCategory={onSelectCategory} />
       <TrendingProducts />
       <Offer />
-      <Shop />
+     
       <ProductList />
+      <Shop />
      
       <Footer />
       {isModalOpen && <NewsletterModal onClose={closeModal} />}

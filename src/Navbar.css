@@ -9,8 +9,9 @@
   color: white;
   position: fixed;
   top: 0;
+  
   width: 100%;
-  height: auto;
+  height: 80px;
   z-index: 1000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease;
   box-shadow: none;
