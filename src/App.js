@@ -5,6 +5,8 @@ import Navbar from './components/Navbar';
 import Category from './components/Category';
 import CategoryProducts from "./components/CategoryProducts";
 import ProductList from './components/ProductList';
+import TrendingProducts from './components/TrendingProducts';
+
 import Cart from './components/Cart';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -96,6 +98,9 @@ function App() {
           <Route path="/checkout" element={<Checkout cart={cart} />} />
           <Route path="/order-confirmation" element={<OrderConfirmation />} />
           <Route path="/all-products" element={<AllProducts />} />
+          <Route path="/trending-products" element={<TrendingProducts />} />
+    
+
         </Routes>
       </div>
     </Router>

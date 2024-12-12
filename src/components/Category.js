@@ -11,6 +11,7 @@ const Category = () => {
   };
 
   return (
+    <div className="animate-on-scroll">
     <div className="category-container">
       <h2 className="category-title">Explore Categories</h2>
       <p className="category-subheader">
@@ -46,6 +47,7 @@ const Category = () => {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 };

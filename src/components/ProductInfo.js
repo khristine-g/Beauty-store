@@ -62,7 +62,7 @@ function ProductInfo({ setCart }) {
           Add to Cart
         </button>
         <button className="info-back-btn" onClick={() => navigate(-1)}>
-          &lt; Back
+          &lt; 
         </button>
       </div>
 

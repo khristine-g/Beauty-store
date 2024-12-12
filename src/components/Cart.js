@@ -37,9 +37,9 @@ const Cart = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
                   </td>
                   <td>${product.price}</td>
                   <td>
-                    <button onClick={() => onUpdateQuantity(product.id, product.quantity - 1)}>-</button>
+                    <button  className=" add-button" onClick={() => onUpdateQuantity(product.id, product.quantity - 1)}>-</button>
                     {product.quantity}
-                    <button onClick={() => onUpdateQuantity(product.id, product.quantity + 1)}>+</button>
+                    <button  className=" subtract-button" onClick={() => onUpdateQuantity(product.id, product.quantity + 1)}>+</button>
                   </td>
                   <td>${(product.price * product.quantity).toFixed(2)}</td>
                   <td>

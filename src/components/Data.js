@@ -188,7 +188,7 @@ const categories = [
           image: 'https://static.smallable.com/1244921-648x648q80/cade-wood-cleansing-gel-480-ml.jpg'
         },
         {  
-          id: 22,
+          id: 23,
           name: 'Plumeria Body Wash',
           description: 'This reﬁllable microsuede, matte bronzer adds buildable warmth and deﬁnition for a naturally sun-kissed tan effect. Feels lightweight and silky.',
           price: 29.99,
@@ -198,7 +198,7 @@ const categories = [
         
        
         {
-          id: 23,
+          id: 24,
           name: 'poison eau de toilette',
           description: 'Provocative and mysterious from its creation, Poison is the ultimate fragrant weapon of heightened seduction by Dior...',
           price: 30.99,
@@ -207,7 +207,7 @@ const categories = [
         },
         {
            
-          id: 24,
+          id: 25,
           name: 'Black Orchid Eau de Parfum Set - TOM FORD',
           description: 'The dramatic Black Orchid Eau de Parfum opens with aphrodisiac black truffle and narcotic ylang ylang...',
           price: 23.99,
@@ -215,7 +215,7 @@ const categories = [
           image: 'https://storage.googleapis.com/scentfied/products/black-orchid-eau-de-parfum-set-tom-ford.webp'
         },
         {
-          id: 25,
+          id: 26,
           name: 'Coco Mademoiselle chanel',
           description: 'The Coco Mademoiselle sparkling perfume begins with a seductive top note of Citrus and Bergamot...',
           price: 35.99,
@@ -223,7 +223,7 @@ const categories = [
           image: 'https://storage.googleapis.com/scentfied/products/coco-mademoiselle-eau-de-parfum.webp'
         },
         {
-          id: 26,
+          id: 27,
           name: 'Baccarat Rouge 540',
           description: 'Luminous and sophisticated, Baccarat Rouge 540 lays on the skin like an amber floral and woody breeze...',
           price: 40.99,
@@ -231,7 +231,7 @@ const categories = [
           image: 'https://shopping-premiereavenue.com/medias/products/11184/500x500/baccarat-rouge-540-11184-9513661.jpg'
         },
         {
-          id: 27,
+          id: 28,
           name: 'YSL Yves Saint Laurent Mon Paris',
           description: 'Mon Paris Eau de Parfum is a sweet fruity floral perfume for women...',
           price: 12.99,
@@ -239,7 +239,7 @@ const categories = [
           image: 'https://parfumaktion.ch/9292-large_default/ysl-yves-saint-laurent-mon-paris-set-50ml-bl-50ml.jpg'
         },
         {
-          id: 28,
+          id: 29,
           name: 'The Dior Homme Sport Eau de Toilette',
           description: 'The new Dior Homme Sport Eau de Toilette plays with themes of freshness and sensuality...',
           price: 22.99,
@@ -247,7 +247,7 @@ const categories = [
           image: 'https://storage.googleapis.com/scentfied/products/the-dior-homme-sport-eau-de-toilette_5Xnb.webp'
         },
         {
-          id: 29,
+          id: 30,
           name: 'Allure Homme Eau de Toilette Spray',
           description: 'Allure Homme Eau de Toilette Spray is a clean, crisp, warm and sexy fragrance...',
           price: 29.99,
@@ -255,7 +255,7 @@ const categories = [
           image: 'https://storage.googleapis.com/scentfied/products/allure-homme-eau-de-toilette-spray.webp'
         },
         {
-          id: 30,
+          id: 31,
           name: 'Victoria’s Secret Bombshell Passion',
           description: 'This Eau de Parfum is a bouquet of electric florals...',
           price: 16.99,
@@ -265,7 +265,7 @@ const categories = [
         
         // For category6
         {
-          id: 31,
+          id: 32,
           name: 'Vanilla Coco Scented Candle',
           description: 'The exotic scent of Coconut Vanilla carries you away to a bright summer beach...',
           price: 32.99,
@@ -274,7 +274,7 @@ const categories = [
         },
 
         {
-          id: 32,
+          id: 33,
           name: 'Bath Body Works White Barn Vanilla Bean',
           description: 'What it smells like: a creamy, cozy welcome home...',
           price: 30.99,
@@ -283,7 +283,7 @@ const categories = [
         },
 
         {
-            id: 33,
+            id: 34,
           name: 'Fancy Ceremony Scented Blue Glass Candle',
           description: 'Aromatize the room with our blue wax filled jar candle...',
           price: 40.99,
@@ -291,7 +291,7 @@ const categories = [
           image: 'https://www.purehomeandliving.com/cdn/shop/files/8907895093587_3.jpg?v=1693568829&width=1090'
         },
         {
-          id: 34,
+          id: 35,
           name: 'Lalique The Night  Scented Candle',
           description: 'A scented candle featuring the luminous and sophisticated scent of Baccarat Rouge 540...',
           price: 35.99,
@@ -299,7 +299,7 @@ const categories = [
           image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT0SWywblqYtt0-eKvsQuCYSETwPUKOVXV4Yw&s'
         },
         {
-          id: 35,
+          id: 36,
           name: 'Maison Margiela Replica Lazy Sunday Morning Candle',
           description: 'Replica Lazy Sunday Morning candle evokes the soft sensation of freshly washed linen sheets...',
           price: 60.99,
@@ -307,7 +307,7 @@ const categories = [
           image: 'https://static.thcdn.com/productimg/960/960/13183547-9105070864109461.jpg'
         },
         {
-          id: 36,
+          id: 37,
           name: 'White Barn Champagne Toast 3-Wick Scented Candle',
           description: 'The Champagne Toast 3-wick candle from Bath & Body Works...',
           price: 26.99,
@@ -315,7 +315,7 @@ const categories = [
           image: 'https://fnf.co.ke/wp-content/uploads/White-Barn-Champagne-Toast-3-Wick-Scented-Candle-e1696762206636.jpg'
         },
         {
-          id: 37,
+          id: 38,
           name: 'HomeLights Luxury Scented Candle',
           description: 'This 3 wick soy blend candle is hand poured into a large glass jar...',
           price: 27.99,
@@ -323,7 +323,7 @@ const categories = [
           image: 'https://i.ebayimg.com/images/g/MfAAAOSwfdxm7QYK/s-l1200.jpg'
         },
         {
-          id: 38,
+          id: 39,
           name: 'Maple Pumpkin Donut Colored Glass Candle',
           description: 'Perfect for cold winter days, this delicious-scented candle is a must-have for the holidays...',
           price: 28.99,
@@ -331,7 +331,7 @@ const categories = [
           image: 'https://theoldefarmstead.com/cdn/shop/files/FullSizeRender_f47ed67f-5abe-4ba1-8095-a0e8d37499f2_1200x.jpg?v=1724952373'
         },
         {
-          id: 39,
+          id: 40,
           name: 'Blackberry Tea & Sage 3 Wick Candle',
           description: 'This fragrant candle has notes of ripe blackberry, herbal sage, and green tea...',
           price: 30.99,

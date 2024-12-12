@@ -5,6 +5,7 @@ import Shop from './Shop';
 import TrendingProducts from './TrendingProducts';
 import NewsletterModal from './NewsletterModal';
 import Marquee from './Marquee';
+import Offer from './Offer';
 import Footer from './Footer';
 import '../Home.css';
 import beautyImage1 from '../images/beauty3.jpg';
@@ -59,6 +60,7 @@ const Home = ({ onSelectCategory }) => {
       <Marquee />
       <Category onSelectCategory={onSelectCategory} />
       <TrendingProducts />
+      <Offer />
       <Shop />
       <ProductList />
      

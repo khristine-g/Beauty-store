@@ -26,6 +26,7 @@ function AllProducts() {
   };
 
   return (
+    <div className="animate-on-scroll">
     <div className='all-product-list'>
       <h2 className='all-product-header'>ALL PRODUCTS</h2>
       <div className="all-product-grid">
@@ -48,6 +49,7 @@ function AllProducts() {
           </div>
         ))}
       </div>
+    </div>
     </div>
   );
 }

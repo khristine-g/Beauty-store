@@ -88,4 +88,17 @@
     grid-template-columns: repeat(2, 1fr); /* 2 categories per row on smaller screens */
   }
 }
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(150px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 

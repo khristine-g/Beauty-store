@@ -1,27 +1,30 @@
 import { useEffect } from "react";
 
 const useScrollAnimation = () => {
-    useEffect(() => {
-        const observer = new IntersectionObserver(
-            (entries) => {
-                entries.forEach((entry, index) => {
-                    if (entry.isIntersecting) {
-                        setTimeout(() => {
-                            entry.target.classList.add("in-view");
-                        }, index * 200); // Staggered delay: 200ms per element
-                    } else {
-                        entry.target.classList.remove("in-view");
-                    }
-                });
-            },
-            { threshold: 0.2 }
-        );
+  useEffect(() => {
+    const handleScroll = () => {
+      const elements = document.querySelectorAll(".animate-on-scroll");
+      elements.forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add("in-view");
+        } else {
+          el.classList.remove("in-view");
+        }
+      });
+    };
 
-        const elements = document.querySelectorAll(".animate-on-scroll");
-        elements.forEach((el) => observer.observe(el));
+    // Check on scroll
+    window.addEventListener("scroll", handleScroll);
 
-        return () => observer.disconnect();
-    }, []);
+    // Check initially
+    handleScroll();
+
+    // Cleanup event listener on unmount
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 };
 
 export default useScrollAnimation;

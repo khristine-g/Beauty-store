@@ -56,6 +56,13 @@
 .remove-button:hover {
   background-color: #c82333;
 }
+.add-button{
+  margin: 4px;
+}
+.subtract-button{
+
+  margin: 4px;
+}
 
 .total-row {
   font-weight: bold;
