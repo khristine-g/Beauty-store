@@ -73,7 +73,7 @@
 
 .product-name {
   font-size: 1.2rem;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: #333;
   font-family: 'Times New Roman', Times, serif;
 }
@@ -89,6 +89,37 @@
   font-weight: bold;
   color: #333;
 }
+.product-details {
+    position: relative;
+    padding: 15px;
+    text-align: left;
+  }
+  
+  .quick-add-btn {
+    display: none;
+    position: absolute;
+    margin-bottom: 5px;
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    width: 200px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    bottom:10%;
+  }
+  
+  .quick-add-btn:hover {
+    background-color: #555;
+  }
+  
+  .product-card:hover .quick-add-btn {
+    display: block;
+  }
+  
+
+
 
 .animate-on-scroll {
   opacity: 0;

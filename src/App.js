@@ -15,8 +15,7 @@ import ProductInfo from './components/ProductInfo';
 import useScrollAnimation from './components/useScrollAnimation';
 import AllProducts from './components/AllProducts';
 import OrderConfirmation from './components/OrderConfirmation';
-import { products } from './components/Data.js'; // Import products from data.js
-import { items } from './components/Data2.js'; // Import additional products from data2.js
+
 import './App.css';
 
 // Example category data (replace with actual data)
@@ -95,7 +94,7 @@ function App() {
       <Route path="/checkout" element={<Checkout cart={cart} />} />
       <Route path="/order-confirmation" element={<OrderConfirmation />} />
       <Route path="/all-products" element={<AllProducts />} />
-      <Route path="/trending-products" element={<TrendingProducts />} />
+      <Route path="/trending-products" element={<TrendingProducts   setCart={setCart}/>} />
     </Routes>
   </div>
 </Router>
