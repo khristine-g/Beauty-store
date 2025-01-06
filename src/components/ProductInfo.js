@@ -58,6 +58,15 @@ function ProductInfo({ setCart }) {
         <h2 className="card-title">{product.name}</h2>
         <p className="price">${product.price}</p>
         <p className="description">{product.description}</p>
+        <a
+                    href={product.tutorialLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="tutorial-link"
+                  >
+                    Watch Tutorial
+                  </a>
+        
         <button className="cart-btn" onClick={handleAddToCart}>
           Add to Cart
         </button>

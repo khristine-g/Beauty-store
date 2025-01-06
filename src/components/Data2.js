@@ -15,6 +15,7 @@ const groups = [
       price: 29.99,
       categoryId: 1,
       image: 'https://cdn.salla.sa/dNNgg/njsY3ZT1CE28U0zE6Qmg2dryERzjzPVDLM2Mq4Yu.jpg',
+      tutorialLink:'https://www.youtube.com/watch?v=2u2JQQ-d1WQ&pp=ygUUbGEgcm9jaGUgcG9zYXkgc2VydW0%3D',
     },
     {
       id: 2,
@@ -22,6 +23,7 @@ const groups = [
       description: 'Helps brighten your skin. Dermatologist-developed moisturizer.',
       price: 30.99,
       categoryId: 1,
+      tutorialLink:'https://www.youtube.com/watch?v=FrxORA1blpw&pp=ygUQTWVkaWs4IHZpdGFtaW4gYw%3D%3D ',
       image: 'https://media.glamourmagazine.co.uk/photos/6465ec2fa6025497ad889dcf/master/w_1280,c_limit/FACE%20SERUM%20180523%201.jpg',
     },
     {
@@ -130,6 +132,8 @@ const groups = [
       }
      
 ];
+
+
       
  
 
