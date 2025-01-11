@@ -1,150 +1,115 @@
-/* Styles based on the Signup page design */
+/* Signup.css */
 .signup-container {
   display: flex;
-  height: 100vh; /* Full height for the signup page */
-  background-color: white; /* Matching the white background */
-  color: black; /* Black text */
-  font-family: 'Roboto', sans-serif; /* Modern, clean font */
+  flex-direction: column;
+  height: 100vh;
+  background-color: #f9f9f9;
+  color: black;
+  font-family: 'Roboto', sans-serif;
 }
 
 .signup-welcome {
-  flex: 1; /* Allow welcome section to take up space */
+  flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Center content vertically */
-  align-items: center; /* Center content horizontally */
-  text-align: center; /* Center text */
-  padding: 20px; /* Add padding for spacing */
-  background-color:  #f0f0f0;
-  margin: 20px;
-  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 50px 20px;
+  background-color: black; /* Soft pink background */
+  margin-bottom: 30px;
 }
 
 .signup-welcome h1 {
-  font-size: 3.5rem; /* Large title */
-  letter-spacing: 4px; /* Spaced out letters */
-  font-weight: bold; /* Bold title */
-  text-transform: uppercase; /* Uppercase letters */
-  margin-bottom: 20px; /* Space below the title */
-  color: black;
+  font-size: 3rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  color: #fff;
+  margin-bottom: 20px;
 }
 
 .signup-welcome p {
-  font-size: 1.2rem; /* Slightly larger paragraph */
-  letter-spacing: 1px; /* Spaced letters */
-  color: #ccc; /* Light gray for subtext */
+  font-size: 1.1rem;
+  color: #fff;
 }
 
 .signup-form-container {
-  flex: 1; /* Allow form container to take space */
   display: flex;
-  justify-content: center; /* Center form horizontally */
-  align-items: center; /* Center form vertically */
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
 }
 
 .signup-form {
-  width: 100%; /* Full width of container */
-  max-width: 40vw; /* Maximum width of the form */
-  padding: 40px; /* Inner padding for form */
-  background-color: #fff; /* White background for form */
-  color: #000; /* Black text */
-  border-radius: 10px; /* Rounded corners */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Subtle shadow for depth */
+  width: 100%;
+  max-width: 650px;
+
+  padding: 40px;
+  border-radius: 20px;
+ 
+  display: flex;
+  flex-direction: column;
 }
 
 .signup-form h2 {
-  text-align: center; /* Centered heading */
-  font-size: 2rem; /* Size of the heading */
-  margin-bottom: 20px; /* Space below heading */
-  color: #000; /* Dark color for heading */
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 25px;
 }
 
-.form-group {
-  margin-bottom: 20px; /* Space between form groups */
+.form-input {
+  padding: 12px 20px;
+  margin: 10px 0;
+  border-radius: 25px; /* Oval shape */
+  border: 2px solid #ddd;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+  outline: none;
 }
 
-.form-label {
-  display: block; /* Block display for labels */
-  font-weight: bold; /* Bold labels */
-  margin-bottom: 8px; /* Space below labels */
-  color: #333; /* Dark color for labels */
-}
-
-.form-control {
-  width: 100%; /* Full width for inputs */
-  padding: 12px; /* Inner padding for inputs */
-  border: 2px solid #333; /* Dark border */
-  border-radius: 6px; /* Rounded input borders */
-  background-color: #f9f9f9; /* Light background inside inputs */
-  transition: border-color 0.3s, background-color 0.3s; /* Smooth transitions */
-}
-
-.form-control:focus {
-  border-color: #333; /* Dark border on focus */
-  background-color: #fff; /* White background on focus */
-  outline: none; /* Remove default outline */
+.form-input:focus {
+  border-color: #333; /* Accent color when focused */
 }
 
 .signup-btn {
-  background-color: #000; /* Black button */
-  color: #fff; /* White text */
-  border: 2px solid #000; /* Black border */
-  border-radius: 6px; /* Rounded button */
-  padding: 12px; /* Inner padding for button */
-  cursor: pointer; /* Pointer on hover */
-  width: 100%; /* Full width button */
-  font-weight: bold; /* Bold text on button */
-  transition: background-color 0.3s, color 0.3s; /* Smooth transitions */
+  background-color: black;
+  color: white;
+  padding: 15px;
+  border-radius: 25px;
+  font-size: 1.2rem;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
 .signup-btn:hover {
-  background-color: #fff; /* White button on hover */
-  color: #000; /* Black text on hover */
+  background-color: #e73470;
 }
 
-.signup-btn:active {
-  transform: scale(0.98); /* Button pressed effect */
-}
-
-/* Add media query for smaller screens */
 @media (max-width: 768px) {
   .signup-container {
-    flex-direction: column; /* Stack welcome and form sections */
-    height: auto; /* Allow auto height for smaller screens */
+    flex-direction: column;
   }
 
   .signup-welcome {
-    padding: 20px; /* Add padding for the welcome section */
-  }
-
-  .signup-welcome h1 {
-    font-size: 2.5rem; /* Smaller font size for title */
-    letter-spacing: 2px; /* Adjust letter spacing */
-  }
-
-  .signup-welcome p {
-    font-size: 1rem; /* Adjust paragraph size */
-  }
-
-  .signup-form-container {
-    width: 100%; /* Full width for form container */
-    padding: 20px; /* Add padding for spacing */
+    padding: 30px;
   }
 
   .signup-form {
-    max-width: 90vw; /* Allow form to use more viewport width */
-    padding: 20px; /* Reduce padding for smaller screens */
+    max-width: 80vw;
+    padding: 30px;
   }
 
   .signup-form h2 {
-    font-size: 1.5rem; /* Adjust heading size */
+    font-size: 1.8rem;
   }
 
-  .form-control {
-    padding: 10px; /* Reduce padding for smaller input fields */
+  .form-input {
+    padding: 10px 15px;
   }
 
   .signup-btn {
-    padding: 10px; /* Reduce padding for smaller buttons */
+    padding: 12px;
   }
 }

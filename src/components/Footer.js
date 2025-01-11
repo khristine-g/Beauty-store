@@ -35,9 +35,7 @@ const Footer = () => {
           <li><a href="/returns-exchanges">Returns + Exchanges</a></li>
           <li><a href="/shipping">Shipping</a></li>
           <li><a href="/terms-conditions">Terms & Conditions</a></li>
-          <li><a href="/faq">FAQ’s</a></li>
-          <li><a href="/compare">Compare</a></li>
-          <li><a href="/wishlist">My Wishlist</a></li>
+          
         </ul>
       </div>
       <div className="footer-section contact-section">
@@ -49,7 +47,7 @@ const Footer = () => {
       </div>
       <div className="footer-section newsletter-section">
         <h2>Sign Up for Email</h2>
-        <p>Sign up to get first dibs on new arrivals, sales, exclusive content, events, and more!</p>
+        
         <input type="email" placeholder="Enter your email..." />
         <button className="subscribe-button">Subscribe</button>
       </div>

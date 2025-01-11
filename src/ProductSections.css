@@ -1,0 +1,58 @@
+.product-sections {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: black;
+    color: white;
+    padding: 50px;
+    height: 50vh;
+    flex-wrap: wrap;
+  }
+  
+  .section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+  }
+  
+  .section:hover {
+    transform: scale(1.05);
+    opacity: 0.9;
+  }
+  
+  .section-icon {
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 15px;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    font-weight: bold;
+  }
+  
+  p {
+    font-size: 1rem;
+    color: #ddd;
+    max-width: 250px;
+    line-height: 1.5;
+  }
+  
+  @media (max-width: 768px) {
+    .product-sections {
+      flex-direction: column;
+      align-items: center;
+      height: auto;
+      padding: 20px;
+    }
+  
+    .section {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  
