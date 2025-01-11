@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { FaCcVisa, FaCcMastercard } from 'react-icons/fa';
+import { SiPaypal } from 'react-icons/si';
+import { MdPhoneIphone } from 'react-icons/md'; // For MPesa, you can use a phone icon or custom image
+
 import '../Checkout.css';
 
 const Checkout = ({ cart, onPlaceOrder }) => {
@@ -8,11 +12,12 @@ const Checkout = ({ cart, onPlaceOrder }) => {
     lastName: '',
     email: '',
     address: '',
-    country: '',
+    county: '',
     town: '',
     zipCode: '',
     phoneNumber: '',
   });
+  const [towns, setTowns] = useState([]); // State to store towns based on selected county
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,14 +29,76 @@ const Checkout = ({ cart, onPlaceOrder }) => {
     console.log('UserInfo:', userInfo);
   }, [userInfo]);
 
- 
-    const calculateTotalPrice = () => {
-      if (!cart || !Array.isArray(cart)) {
-        return 0;
-      }
-      return cart.reduce((total, product) => total + product.price * product.quantity, 0);
-    };
+  // Mapping of counties to major towns
+  const countiesAndTowns = {
+    "Bomet": ["Bomet Town", "Kaptum", "Kembu", "Longisa"],
+    "Bungoma": ["Bungoma Town", "Chwele", "Webuye", "Kimilili"],
+    "Busia": ["Busia Town", "Malaba", "Nambale", "Buniyala"],
+    "Elgeyo-Marakwet": ["Iten", "Kapkitony", "Kamariny", "Keiyo"],
+    "Embu": ["Embu Town", "Runyenjes", "Manyatta", "Mbeere"],
+    "Garissa": ["Garissa Town", "Modogashe", "Bura", "Iftin"],
+    "Homa Bay": ["Homa Bay Town", "Kendu Bay", "Rachuonyo", "Mbita"],
+    "Isiolo": ["Isiolo Town", "Garbatula", "Merti", "Oldonyiro"],
+    "Kajiado": ["Kajiado Town", "Ngong", "Loitokitok", "Magadi"],
+    "Kakamega": ["Kakamega Town", "Lurambi", "Shinyalu", "Navakholo"],
+    "Kericho": ["Kericho Town", "Sotik", "Kapsoit", "Kiprugut"],
+    "Kiambu": ["Kiambu Town", "Thika", "Ruiru", "Kimbo"],
+    "Kilifi": ["Kilifi Town", "Malindi", "Gede", "Mtwapa"],
+    "Kirinyaga": ["Kerugoya", "Kutus", "Kianyaga", "Mwea"],
+    "Kisii": ["Kisii Town", "Kisii County", "Nyamira", "Nyamache"],
+    "Kisumu": ["Kisumu Town", "Ahero", "Muhoroni", "Kondele"],
+    "Kitui": ["Kitui Town", "Mwingi", "Kangundo", "Kwa Vonza"],
+    "Kwale": ["Kwale Town", "Diani", "Ukunda", "Majarija"],
+    "Laikipia": ["Nanyuki", "Nyahururu", "Rumuruti", "Ngarua"],
+    "Lamu": ["Lamu Town", "Mpeketoni", "Hulugho", "Witu"],
+    "Machakos": ["Machakos Town", "Mavoko", "Kangundo", "Masinga"],
+    "Makueni": ["Wote", "Makueni Town", "Kangundo", "Mavindu"],
+    "Mandera": ["Mandera Town", "Bula Hawa", "Rhamu", "Libehia"],
+    "Marsabit": ["Marsabit Town", "Saku", "North Horr", "Turbi"],
+    "Mombasa": ["Mombasa Town", "Likoni", "Shanzu", "Ganjoni"],
+    "Murang'a": ["Murang'a Town", "Kenol", "Kangema", "Maragua"],
+    "Nairobi": ["Nairobi City", "Westlands", "Kilimani", "Lang'ata"],
+    "Nakuru": ["Nakuru Town", "Naivasha", "Molo", "Gilgil"],
+    "Nandi": ["Kapsabet", "Nandi Hills", "Mosoriot", "Kaptagat"],
+    "Narok": ["Narok Town", "Maasai Mara", "Nakuru", "Sekenani"],
+    "Nyamira": ["Nyamira Town", "Bonyamatuta", "Manga", "Ekerenyo"],
+    "Nyandarua": ["Ol Kalou", "Ndaragwa", "Karatina", "Njiru"],
+    "Samburu": ["Maralal", "Samburu East", "Samburu West", "Baragoi"],
+    "Siaya": ["Siaya Town", "Bondo", "Ugunja", "Usigu"],
+    "Taita Taveta": ["Voi", "Taveta", "Mwatate", "Wundanyi"],
+    "Tana River": ["Garissa", "Bura", "Tana Delta", "Madogo"],
+    "Tharaka Nithi": ["Chuka", "Mwingi", "Kiritiri", "Marimanti"],
+    "Trans Nzoia": ["Kitale", "Kiminini", "Saboti", "Cherangany"],
+    "Uasin Gishu": ["Eldoret", "Turbo", "Ziwa", "Kesses"],
+    "Vihiga": ["Vihiga Town", "Mbale", "Sabatia", "Luanda"],
+    "Wajir": ["Wajir Town", "Tarbaj", "Bute", "Wajir East"],
+    "West Pokot": ["Kapenguria", "Makutano", "Kacheliba", "Sigor"],
+  };
 
+  const counties = Object.keys(countiesAndTowns);
+
+  const handleCountyChange = (e) => {
+    const selectedCounty = e.target.value;
+    setUserInfo((prevInfo) => ({
+      ...prevInfo,
+      county: selectedCounty,
+      town: '', // Reset town when county changes
+    }));
+
+    // Update towns based on selected county
+    if (countiesAndTowns[selectedCounty]) {
+      setTowns(countiesAndTowns[selectedCounty]);
+    } else {
+      setTowns([]);
+    }
+  };
+
+  const calculateTotalPrice = () => {
+    if (!cart || !Array.isArray(cart)) {
+      return 0;
+    }
+    return cart.reduce((total, product) => total + product.price * product.quantity, 0);
+  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -43,11 +110,10 @@ const Checkout = ({ cart, onPlaceOrder }) => {
 
   const handlePlaceOrder = async () => {
     if (userInfo.firstName && userInfo.lastName && userInfo.email && userInfo.address) {
-      // Simulate placing the order and receiving an order number and date
       const orderNumber = Math.floor(Math.random() * 1000000000);
       const date = new Date().toLocaleDateString();
       const total = calculateTotalPrice();
-      const paymentMethod = 'Credit Card';  // Example payment method
+      const paymentMethod = 'Credit Card';
 
       const orderDetails = cart.map((item) => ({
         id: item.id,
@@ -55,7 +121,6 @@ const Checkout = ({ cart, onPlaceOrder }) => {
         price: item.price,
       }));
 
-      // Navigate to OrderConfirmation component with state
       navigate('/order-confirmation', {
         state: {
           orderNumber,
@@ -74,114 +139,125 @@ const Checkout = ({ cart, onPlaceOrder }) => {
     <div className="checkout-container">
       <div className="billing-details">
         <h2>Billing Details</h2>
-        <form className='check-form'>
-          <label htmlFor="firstName">First Name:</label>
-          <input type="text" id="firstName" name="firstName" value={userInfo.firstName} onChange={handleChange} required />
+        <form className="check-form">
+         
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            placeholder="First Name"
+            value={userInfo.firstName}
+            onChange={handleChange}
+            required
+          />
 
-          <label htmlFor="lastName">Last Name:</label>
-          <input type="text" id="lastName" name="lastName" value={userInfo.lastName} onChange={handleChange} required />
-
-          <label htmlFor="email">Email:</label>
-          <input type="email" id="email" name="email" value={userInfo.email} onChange={handleChange} required />
-
-          <label htmlFor="address">Street Address:</label>
-          <textarea id="address" name="address" value={userInfo.address} onChange={handleChange} required />
-
-          <label htmlFor="country">Country:</label>
-          <select id="country" name="country" value={userInfo.country} onChange={handleChange} required>
-            <option value="">Select your country</option>
-            <option value="USA">USA</option>
-            <option value="Canada">Canada</option>
-            <option value="UK">UK</option>
-            {/* Add more countries as needed */}
-          </select>
-
-          <label htmlFor="town">Town/City:</label>
-          <input type="text" id="town" name="town" value={userInfo.town} onChange={handleChange} required />
-
-          <label htmlFor="zipCode">ZIP Code:</label>
-          <input type="text" id="zipCode" name="zipCode" value={userInfo.zipCode} onChange={handleChange} required />
-
-          <label htmlFor="phoneNumber">Phone Number:</label>
-          <input type="text" id="phoneNumber" name="phoneNumber" value={userInfo.phoneNumber} onChange={handleChange} required />
+          
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            placeholder="Last Name"
+            value={userInfo.lastName}
+            onChange={handleChange}
+            required
+          />
 
          
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            value={userInfo.email}
+            onChange={handleChange}
+            required
+          />
+
+         
+          <textarea
+            id="address"
+            name="address"
+            placeholder="Street Address"
+            value={userInfo.address}
+            onChange={handleChange}
+            required
+          />
+
+        
+          <select
+            id="county"
+            name="county"
+            value={userInfo.county}
+            onChange={handleCountyChange}
+            required
+          >
+            <option value="">Select your county</option>
+            {counties.map((county) => (
+              <option key={county} value={county}>
+                {county}
+              </option>
+            ))}
+          </select>
+
+          
+          <select
+            id="town"
+            name="town"
+            value={userInfo.town}
+            onChange={handleChange}
+            required
+          >
+            <option value="">Select your town</option>
+            {towns.map((town) => (
+              <option key={town} value={town}>
+                {town}
+              </option>
+            ))}
+          </select>
+
+        
+          <input
+            type="text"
+            id="phoneNumber"
+            name="phoneNumber"
+            placeholder="Phone Number"
+            value={userInfo.phoneNumber}
+            onChange={handleChange}
+            required
+          />
         </form>
       </div>
 
       <div className="checkout-summary">
         <div className="cart-summary">
           <h2>Checkout Summary</h2>
-          <h3 style={{color:'green'}}>Cart Summary:</h3>
-          <ul className='check-list'>
+          <h3 style={{ color: 'green' }}>Cart Summary:</h3>
+          <ul className="check-list">
             {cart.map((product) => (
               <li key={product.id}>
-                <img className='check-img' src={product.image} alt={product.name} />
-                <h4 className='check-name'>{product.name}</h4>
-                <p className='check-quantity'>{product.quantity}</p>
-
-                <p className='check-price'>${product.price}</p>
-
+                <img className="check-img" src={product.image} alt={product.name} />
+                <h4 className="check-name">{product.name}</h4>
+                <p className="check-quantity">{product.quantity}</p>
+                <p className="check-price">ksh {product.price}</p>
               </li>
             ))}
           </ul>
-          <p className='total-price'>Total Price: ${calculateTotalPrice()}</p>
+          <p className="total-price">Total Price: ksh {calculateTotalPrice()}</p>
         </div>
 
-        <div className="payment-details">
-          <h4>Payment Methods</h4>
-          <div className="payment-options">
-            <div>
-              <input type="radio" id="bankTransfer" name="paymentMethod" />
-              <label htmlFor="bankTransfer">Direct bank transfer</label>
-              <p>
-                Make your payment directly into our bank account. Please use your Order ID as the payment reference.
-                Your order will not be shipped until the funds have cleared in our account.
-              </p>
-            </div>
-            <div>
-              <input type="radio" id="checkPayments" name="paymentMethod" />
-              <label htmlFor="checkPayments">Check payments</label>
-              <p>
-                Phasellus sed volutpat orci. Fusce eget lorem mauris, vehicula elementum gravida nec dui.
-                Aenean aliquam varius ipsum, non ultricies tellus sodales eu.
-              </p>
-            </div>
-            <div>
-              <input type="radio" id="cashOnDelivery" name="paymentMethod" />
-              <label htmlFor="cashOnDelivery">Cash on delivery</label>
-              <p>
-                Phasellus sed volutpat orci. Fusce eget lorem mauris, vehicula elementum gravida nec dui.
-                Aenean aliquam varius ipsum, non ultricies tellus sodales eu.
-              </p>
-            </div>
-            <div>
-              <input type="radio" id="paypal" name="paymentMethod" />
-              <label htmlFor="paypal">Paypal</label>
-              <p>
-                Phasellus sed volutpat orci. Fusce eget lorem mauris, vehicula elementum gravida nec dui.
-                Aenean aliquam varius ipsum, non ultricies tellus sodales eu.
-              </p>
-            </div>
-          </div>
-
-          <p className="privacy-notice">
-            Your personal data will be used to process your order, support your experience throughout this website, and for other purposes described in our privacy policy.
-          </p>
-
-          <button className="checkout-button" onClick={handlePlaceOrder}>Place Order</button>
+ <div className="payment-methods">
+      <FaCcVisa size={40} title="Visa" />
+      <SiPaypal size={40} title="PayPal" />
+      <FaCcMastercard size={40} title="Mastercard" />
+      <MdPhoneIphone size={40} title="MPesa" />
+    </div>
+          <button className="checkout-button" onClick={handlePlaceOrder}>
+            Place Order
+          </button>
         </div>
       </div>
-    </div>
+    
   );
 };
 
-
 export default Checkout;
-
-
-
-
-
-
-

@@ -4,11 +4,14 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { SearchProvider } from './components/SearchContext'; // Import SearchProvider
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <SearchProvider> {/* Wrap App with SearchProvider */}
+      <App />
+    </SearchProvider>
   </React.StrictMode>
 );
 

@@ -1,11 +1,9 @@
 .cart {
   padding: 20px;
-  background-color: #f9f9f9;
   border-radius: 8px;
-  max-width: 90%; /* Allow it to expand more on smaller screens */
-  margin: 0 auto; /* Center the table */
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  max-width: 1200px;
   margin-top: 100px;
+  
 }
 
 .cart h2 {
@@ -13,63 +11,117 @@
   margin-bottom: 20px;
 }
 
+.cart-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 180px;
+  
+}
+
+.cart-items {
+  flex: 0 0 70%; /* Takes up 70% of the space */
+  overflow-x: auto;
+  
+  
+}
+
 .cart-table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  table-layout: fixed; /* Keep column width consistent */
+  height: 300px;
 }
 
-.cart-table th,
-.cart-table td {
-  padding: 10px; /* Adjust padding for smaller screens */
-  text-align: left;
-  border-bottom: 1px solid #ccc;
-  font-size: 14px; /* Keep font size smaller */
-  word-wrap: break-word;
+.cart-table th, .cart-table td {
+  padding: 12px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
 }
 
 .cart-table th {
-  background-color: #f2f2f2;
-  text-align: center;
+  /* background-color: #f1f1f1; */
 }
 
-.cart-table td {
-  text-align: center;
+.cart-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .cart-img {
-  width: 80px; /* Adjust image size for smaller screens */
-  height: 80px;
-  margin-right: 10px;
+  width: 200px;
+  height: 200px;
   object-fit: cover;
+}
+
+.quantity-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.quantity-button {
+  background-color: #f1f1f1;
+  border: 1px solid #ccc;
+  padding: 0;
+  cursor: pointer;
+  margin: 0 5px;
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.quantity {
+  display: inline-block;
+  border: 1px solid #ccc;
+  padding: 8px;
+  margin: 0 5px;
+  border-radius: 8px;
+  font-size: 16px;
+  min-width: 30px;
+  text-align: center;
 }
 
 .remove-button {
   background-color: #dc3545;
   border: none;
   color: white;
-  padding: 5px 10px; /* Adjust button size for small screens */
+  padding: 8px 15px;
   cursor: pointer;
+  border-radius: 5px;
 }
 
 .remove-button:hover {
   background-color: #c82333;
 }
-.add-button{
-  margin: 4px;
-}
-.subtract-button{
-
-  margin: 4px;
-}
-
-.total-row {
+.product-price{
   font-weight: bold;
-  background-color: #e9ecef;
 }
-.checkout-link{
 
+.cart-details {
+  flex: 0 0 28%; /* Takes up 28% of the space */
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-details h3 {
+  margin-top: 0;
+}
+
+.cart-summary-item {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.checkout-link {
   text-decoration: none;
 }
 
@@ -92,20 +144,38 @@
 
 /* Media Queries for responsiveness */
 @media (max-width: 768px) {
-  .cart {
-    max-width: 100%;
-    padding: 15px;
-    margin-top: 100px;
+  .cart-content {
+    flex-direction: column;
   }
 
-  .cart-table th, .cart-table td {
-    padding: 8px; /* Reduce padding for smaller screens */
-    font-size: 12px; /* Smaller font for smaller screens */
+  .cart-items {
+    width: 100%;
+  }
+
+  .cart-details {
+    width: 100%;
+    margin-top: 20px;
   }
 
   .cart-img {
-    width: 60px;
-    height: 60px; /* Smaller product images */
+    width: 80px;
+    height: 80px;
+  }
+
+  .quantity-button {
+    width: 30px;
+    height: 30px;
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  .quantity {
+    font-size: 14px;
+    padding: 6px;
+  }
+
+  .cart-item-details p {
+    font-size: 14px;
   }
 
   .checkout-button {
@@ -115,14 +185,20 @@
 }
 
 @media (max-width: 480px) {
-  .cart-table th, .cart-table td {
-    padding: 5px; /* Reduce padding for very small screens */
-    font-size: 10px;
+  .cart-img {
+    width: 60px;
+    height: 60px;
   }
 
-  .cart-img {
-    width: 50px;
-    height: 50px; /* Smaller product images */
+  .quantity-button {
+    width: 25px;
+    height: 25px;
+    font-size: 12px;
+  }
+
+  .quantity {
+    font-size: 12px;
+    padding: 5px;
   }
 
   .checkout-button {

@@ -35,7 +35,7 @@ const ProductList = ({ selectedCategory }) => {
               />
               <div className="product-details">
                 <h3 className="product-name">{product.name}</h3>
-                <p className="product-price">${product.price.toFixed(2)}</p>
+                <p className="product-price">ksh {product.price.toFixed(2)}</p>
                 
               </div>
             </div>

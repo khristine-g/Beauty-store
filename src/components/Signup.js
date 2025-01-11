@@ -62,7 +62,7 @@ const Signup = ({ csrfToken }) => {
   return (
     <div className="signup-container">
       <div className="signup-welcome">
-        <h1>Welcome to Serene Beauty</h1>
+        <h1>Welcome to True Beauty</h1>
         <p>Join us for an exclusive beauty experience.</p>
       </div>
       <div className="signup-form-container">

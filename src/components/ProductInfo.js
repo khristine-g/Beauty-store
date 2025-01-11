@@ -56,7 +56,7 @@ function ProductInfo({ setCart }) {
       {/* Product Details */}
       <div className="product-details">
         <h2 className="card-title">{product.name}</h2>
-        <p className="price">${product.price}</p>
+        <p className="price">ksh {product.price}</p>
         <p className="description">{product.description}</p>
         <a
                     href={product.tutorialLink}
@@ -66,13 +66,15 @@ function ProductInfo({ setCart }) {
                   >
                     Watch Tutorial
                   </a>
+                  <div className='product-info-buttons'>
         
         <button className="cart-btn" onClick={handleAddToCart}>
           Add to Cart
         </button>
         <button className="info-back-btn" onClick={() => navigate(-1)}>
-          &lt; 
+          Back to Home 
         </button>
+      </div>
       </div>
 
       {/* Success Modal */}

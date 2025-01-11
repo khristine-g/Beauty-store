@@ -1,65 +1,84 @@
+/* Main container for checkout page */
 .checkout-container {
   display: flex;
   justify-content: space-between;
   padding: 2rem;
-  gap: 2rem;
-  background-color: #f9f9f9;
-  font-family: Arial, sans-serif;
-  flex-wrap: wrap; /* Adjust layout on smaller screens */
+
+
+  font-family: 'Arial', sans-serif;
+  max-width: 1200px; /* Limit the width of the checkout form */
+  margin: 0 auto;
+  gap: 1.5rem;
+  border-radius: 8px;
+
+  flex-wrap: wrap;
 }
 
-.billing-details, 
+/* Billing and checkout summary sections */
+.billing-details,
 .checkout-summary {
   flex: 1;
-  background-color: #fff;
-  padding: 2rem;
+  margin-top: 100px;
+ 
+  padding: 1.5rem;
   border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 1rem; /* Add margin for separation */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 1.5rem;
 }
 
 .checkout-summary {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
+/* Form styling */
 .check-form {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  margin-bottom: 1.5rem;
 }
 
 .check-form label {
-  grid-column: span 2;
   color: #333;
+  font-weight: 600;
   margin-bottom: 0.3rem;
 }
 
 .check-form input,
 .check-form textarea,
 .check-form select {
-  grid-column: span 2;
-  padding: 0.5rem;
+  padding: 0.75rem;
   border: 1px solid #ccc;
   border-radius: 4px;
+  font-size: 14px;
+  transition: border-color 0.3s ease;
+}
+
+.check-form input:focus,
+.check-form textarea:focus,
+.check-form select:focus {
+  border-color: #007bff;
+  outline: none;
 }
 
 button[type="button"] {
-  grid-column: span 2;
-  padding: 0.7rem;
+  padding: 0.75rem;
   background-color: #28a745;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  font-size: 16px;
 }
 
 button[type="button"]:hover {
   background-color: #218838;
 }
 
+/* Cart summary section */
 .check-list {
   list-style: none;
   padding: 0;
@@ -71,7 +90,7 @@ button[type="button"]:hover {
   align-items: center;
   justify-content: space-between;
   padding: 0.8rem 0;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eaeaea;
 }
 
 .check-img {
@@ -79,6 +98,7 @@ button[type="button"]:hover {
   height: 60px;
   object-fit: cover;
   margin-right: 1rem;
+  border-radius: 6px;
 }
 
 .check-name {
@@ -87,27 +107,26 @@ button[type="button"]:hover {
   color: #333;
 }
 
+.check-quantity,
 .check-price {
   font-size: 14px;
   color: #777;
 }
 
-.check-quantity {
-  font-size: 14px;
-}
-
 .total-price {
   font-size: 18px;
   font-weight: 700;
-  margin-top: 1rem;
+  margin-top: 1.5rem;
+  color: #28a745;
 }
 
+/* Payment options styling */
 .payment-options {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .payment-options div {
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .payment-options label {
@@ -119,27 +138,29 @@ button[type="button"]:hover {
   margin-top: 2rem;
   font-size: 14px;
   color: #555;
+  line-height: 1.6;
 }
 
-/* Responsive adjustments */
+/* Responsive adjustments for smaller screens */
 @media (max-width: 768px) {
   .checkout-container {
-    flex-direction: column; /* Stack billing and summary vertically */
-    padding: 1rem;
-    gap: 1rem;
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: 1.5rem;
   }
 
   .check-form {
-    grid-template-columns: 1fr; /* Single column on small screens */
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
   }
 
   button[type="button"] {
-    grid-column: span 1; /* Single column on small screens */
+    width: 100%;
   }
 
-  .checkout-summary, 
+  .checkout-summary,
   .billing-details {
-    padding: 1rem;
+    padding: 1.5rem;
     box-shadow: none;
   }
 
@@ -152,7 +173,7 @@ button[type="button"]:hover {
     font-size: 14px;
   }
 
-  .check-price, 
+  .check-price,
   .check-quantity {
     font-size: 12px;
   }

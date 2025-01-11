@@ -1,93 +1,120 @@
 import React, { useState } from 'react';
-import { Modal, Button } from 'react-bootstrap';  // Import Bootstrap Modal and Button
-import '../Offer.css'; // Import styles
-import candleImage1 from '../images/candle1.jpg';
+import { Carousel, Modal, Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap styles
+import '../Offer.css';
+import candleImage1 from '../images/candle3.jpg';
+import candleImage2 from '../images/perfume6.jpg';
+import candleImage3 from '../images/diffuser.jpeg';
 
 function Offer({ setCart }) {
-  const product = {
-    id: 1,  // Add a unique ID to the product
-    name: 'Home Lights Scented Candle',
-    image: candleImage1,
-    description: 'Transform your space into a haven of tranquility with our Osmanthus & Amber Scented Candle. Hand-poured with care, this candle is crafted from eco-friendly soy wax and infused with a blend of soothing lavender, warm vanilla, and hints of fresh eucalyptus. The delicate fragrance fills the room with a calming ambiance, perfect for unwinding after a long day or setting the mood for cozy evenings. With its clean burn and minimalist design, this candle not only soothes your senses but also enhances your décor. Light up Serenity and let its gentle glow and comforting aroma bring peace to your world.',
-    previousPrice: 35.99,
-    newPrice: 27.99,
-  };
+  const products = [
+    {
+      id: 1,
+      name: 'Lalique Scented Candle',
+      image: candleImage1,
+      description:
+        'A refined blend of the aromatic fruitiness of plum with bittersweet notes of Amaretto, floral jasmine accords and relaxing exotic iris accents.',
+      previousPrice: 35.99,
+      newPrice: 27.99,
+    },
+    {
+      id: 2,
+      name: 'Flower Bomb Perfume',
+      image: candleImage2,
+      description:
+        'This modern classic truly has a bit of everything: Juicy blood orange and mandarin, fresh lily of the valley, and earthy patchouli combine for a timeless scent.',
+      previousPrice: 29.99,
+      newPrice: 22.99,
+    },
+    {
+      id: 3,
+      name: 'Jo Malone Diffuser',
+      image: candleImage3,
+      description:
+        'Immerse yourself in the comforting aroma of vanilla bean with this hand-poured candle. Perfect for cozy nights or gifting.',
+      previousPrice: 25.99,
+      newPrice: 19.99,
+    },
+  ];
 
   const [showModal, setShowModal] = useState(false);
 
-  const handleAddToCart = () => {
+  const handleAddToCart = (product) => {
     try {
-      // Ensure `product.newPrice` is a valid number before using it
-      if (isNaN(product.newPrice)) {
-        throw new Error('Invalid product price');
-      }
-  
-      // Retrieve cart from localStorage
       const storedCart = localStorage.getItem('cart');
       const parsedCart = storedCart ? JSON.parse(storedCart) : [];
-  
-      // Check if product is already in cart and update quantity
-      const existingProductIndex = parsedCart.findIndex(cartProduct => cartProduct.id === product.id);
+      const existingProductIndex = parsedCart.findIndex((p) => p.id === product.id);
+
       if (existingProductIndex !== -1) {
         parsedCart[existingProductIndex].quantity += 1;
       } else {
         parsedCart.push({ ...product, quantity: 1 });
       }
-  
-      // Store updated cart in localStorage
+
       localStorage.setItem('cart', JSON.stringify(parsedCart));
-  
-      // Update cart in parent component
       setCart(parsedCart);
-  
-      // Show success modal
       setShowModal(true);
     } catch (error) {
       console.error('Error adding product to cart:', error);
     }
   };
-  
+
   const handleCloseModal = () => setShowModal(false);
 
   return (
     <div className="animate-on-scroll">
-    <div className="offer-container">
-      <div className="offer-card">
-        {/* Product Image */}
-        <img className="offer-image" src={product.image} alt={product.name} />
+      <h1 className="offer-title">Exclusive Offers</h1>
+      <div className="offer-container">
+        <Carousel interval={2000} pause="hover" fade>
+          {products.map((product) => (
+            <Carousel.Item key={product.id}>
+              <div className="offer-card">
+                <img
+                  className="offer-image"
+                  src={product.image}
+                  alt={product.name}
+                />
+                <div className="offer-details">
+                  <h2 className="offer-item-title">{product.name}</h2>
+                  <p className="offer-description">{product.description}</p>
+                  <div className="offer-prices">
+                    <span className="offer-previous-price">
+                      ${product.previousPrice.toFixed(2)}
+                    </span>
+                    <span className="offer-new-price">
+                      ${product.newPrice.toFixed(2)}
+                    </span>
+                  </div>
+                  <button
+                    className="offer-add-to-cart-btn"
+                    onClick={() => handleAddToCart(product)}
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </div>
+            </Carousel.Item>
+          ))}
+        </Carousel>
 
-        {/* Product Details */}
-        <div className="offer-details">
-          <h2 className="offer-title">{product.name}</h2>
-          <p className="offer-description">{product.description}</p>
-          <div className="offer-prices">
-            <span className="offer-previous-price">${product.previousPrice.toFixed(2)}</span>
-            <span className="offer-new-price">${product.newPrice.toFixed(2)}</span>
-          </div>
-          <button className="offer-add-to-cart-btn" onClick={handleAddToCart}>
-            Add to Cart
-          </button>
-        </div>
+        {/* Success Modal */}
+        <Modal show={showModal} onHide={handleCloseModal}>
+          <Modal.Header closeButton>
+            <Modal.Title>Success</Modal.Title>
+          </Modal.Header>
+          <Modal.Body>
+            <div className="text-center">
+              <span style={{ fontSize: '24px', color: 'green' }}>✔️</span>
+              <p>Product added to cart successfully!</p>
+            </div>
+          </Modal.Body>
+          <Modal.Footer>
+            <Button variant="secondary" onClick={handleCloseModal}>
+              OK
+            </Button>
+          </Modal.Footer>
+        </Modal>
       </div>
-
-      {/* Success Modal */}
-      <Modal show={showModal} onHide={handleCloseModal}>
-        <Modal.Header closeButton>
-          <Modal.Title>Success</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
-          <div className="text-center">
-            <span style={{ fontSize: '24px', color: 'green' }}>✔️</span>
-            <p>Product added to cart successfully!</p>
-          </div>
-        </Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleCloseModal}>
-            OK
-          </Button>
-        </Modal.Footer>
-      </Modal>
-    </div>
     </div>
   );
 }

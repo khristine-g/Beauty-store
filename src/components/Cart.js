@@ -1,4 +1,3 @@
-// Cart.js
 import React from 'react';
 import { Link } from 'react-router-dom';
 import '../Cart.css';
@@ -13,58 +12,76 @@ const Cart = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
 
   return (
     <div className="cart">
-      <h2>Your Cart</h2>
+      <h2>My Cart</h2>
       {!cart || cart.length === 0 ? (
         <p>Your cart is empty.</p>
       ) : (
-        <>
-          <table className='cart-table'>
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Subtotal</th>
-                <th>Remove</th>
-              </tr>
-            </thead>
-            <tbody>
-              {cart.map((product) => (
-                <tr key={product.id}>
-                  <td>
-                    <img className='cart-img' src={product.image} alt={product.name} />
-                    {product.name}
-                  </td>
-                  <td>${product.price}</td>
-                  <td>
-                    <button  className=" add-button" onClick={() => onUpdateQuantity(product.id, product.quantity - 1)}>-</button>
-                    {product.quantity}
-                    <button  className=" subtract-button" onClick={() => onUpdateQuantity(product.id, product.quantity + 1)}>+</button>
-                  </td>
-                  <td>${(product.price * product.quantity).toFixed(2)}</td>
-                  <td>
-                    <button className="remove-button" onClick={() => onRemoveFromCart(product.id)}>X</button>
-                  </td>
+        <div className="cart-content">
+          {/* Cart items table */}
+          <div className="cart-items">
+            <table className="cart-table">
+              <thead>
+                <tr>
+                  <th>Product</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>Total Price</th>
+                  <th>Action</th>
                 </tr>
-              ))}
-              <tr className="total-row">
-                <td colSpan="3">Total</td>
-                <td>${calculateTotalPrice().toFixed(2)}</td>
-                <td></td>
-              </tr>
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {cart.map((product) => (
+                  <tr key={product.id}>
+                    <td>
+                      <div className="cart-item">
+                        <img className="cart-img" src={product.image} alt={product.name} />
+                        <span>{product.name}</span>
+                      </div>
+                    </td>
+                    <td className='product-price'>ksh {product.price}</td>
+                    <td>
+                      <div className="quantity-container">
+                        <button className="quantity-button" onClick={() => onUpdateQuantity(product.id, product.quantity - 1)}>-</button>
+                        <span className="quantity">{product.quantity}</span>
+                        <button className="quantity-button" onClick={() => onUpdateQuantity(product.id, product.quantity + 1)}>+</button>
+                      </div>
+                    </td>
+                    <td className='product-price'>ksh {(product.price * product.quantity).toFixed(2)}</td>
+                    <td >
+                      <button className="remove-button" onClick={() => onRemoveFromCart(product.id)}>Remove</button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
 
-          <Link className='checkout-link' to="/checkout">
-            <button className="checkout-button">PROCEED TO CHECKOUT</button>
-          </Link>
-        </>
+          {/* Cart details */}
+          <div className="cart-details">
+            <h3>Cart Details</h3>
+            <div className="cart-summary-item">
+              <p>Total Price</p>
+              <p>ksh {calculateTotalPrice().toFixed(2)}</p>
+            </div>
+            <div className="cart-summary-item">
+              <p>Delivery Charges</p>
+              <p>Free</p>
+            </div>
+            <div className="cart-summary-item">
+              <p><strong>Total Amount</strong></p>
+              <p><strong>ksh {calculateTotalPrice().toFixed(2)}</strong></p>
+            </div>
+
+            <Link className="checkout-link" to="/checkout">
+              <button className="checkout-button">PROCEED TO CHECKOUT</button>
+            </Link>
+          </div>
+        </div>
       )}
     </div>
   );
 };
 
 export default Cart;
-
 
 
