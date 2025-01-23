@@ -1,10 +1,11 @@
 /* Marquee.css */
 .marquee-container {
     overflow: hidden; /* Hides the overflow */
+    margin-bottom: 50px;
     height: 50px;
     color: white;
     white-space: nowrap; /* Prevents line breaks */
-    background-color: black; /* Optional: Background color for contrast */
+    background-color: #bf4080; /* Optional: Background color for contrast */
     padding: 10px 0; /* Optional: Padding around the marquee */
   }
   

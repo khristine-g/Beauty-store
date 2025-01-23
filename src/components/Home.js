@@ -6,6 +6,8 @@ import Shop from './Shop';
 import TrendingProducts from './TrendingProducts';
 import ProductSections from './ProductSections';
 import NewsletterModal from './NewsletterModal';
+import Sales from './Sales';
+import Reviews from './Reviews';
 import About from './About';
 import Marquee from './Marquee';
 import Offer from './Offer';
@@ -67,12 +69,16 @@ const Home = ({ onSelectCategory }) => {
       </div>
     
       <Category onSelectCategory={onSelectCategory} />
-      <Marquee />
+     
       <TrendingProducts />
+
+      <Marquee />
       
       <Offer />
       <About />
       <ProductSections />
+      <Sales />
+      <Reviews />
       
      
       <ProductList />

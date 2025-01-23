@@ -1,0 +1,110 @@
+.sales-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    height: 100vh;
+    width: 100vw;
+    font-family: "Arial", sans-serif;
+    color: #333;
+  }
+  
+  .sales-image {
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .sales-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    background: #f9f9f9;
+  }
+  
+  .sales-title {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #bf4080;
+    margin-bottom: 10px;
+  }
+  
+  .sales-subtitle {
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    color: #555;
+  }
+  
+  .countdown {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .time-box {
+    background: #bf4080;
+    color: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    text-align: center;
+    min-width: 60px;
+  }
+  
+  .time-value {
+    font-size: 1.5rem;
+    font-weight: bold;
+    display: block;
+  }
+  
+  .time-label {
+    font-size: 0.9rem;
+    margin-top: 5px;
+  }
+  
+  .sales-description {
+    font-size: 1.2rem;
+    margin: 20px 0;
+    color: #555;
+  }
+  
+  .shop-now-btn {
+    background: #bf4080;
+    color: #fff;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.3s ease;
+  }
+  
+  .shop-now-btn:hover {
+    background: #a1346c;
+  }
+  
+  @media (max-width: 768px) {
+    .sales-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .sales-image,
+    .sales-content {
+      width: 100vw;
+      height: 50vh;
+    }
+  
+    .sales-title {
+      font-size: 2rem;
+    }
+  
+    .sales-subtitle {
+      font-size: 1.2rem;
+    }
+  
+    .shop-now-btn {
+      font-size: 0.9rem;
+      padding: 10px 20px;
+    }
+  }
+  

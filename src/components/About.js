@@ -3,6 +3,7 @@ import "../About.css"; // Ensure the CSS file exists for styling
 
 const About = () => {
   return (
+    <div className="animate-on-scroll">
     <div className="about-container">
       <div className="about-content">
         <h2>About Us</h2>
@@ -27,7 +28,7 @@ const About = () => {
         <div className="about-item">
           <div className="about-number">03</div>
           <div className="about-text">
-            <h3>Quality You Can Trust</h3>
+            <h3>Quality You  Trust</h3>
             <p>
               Every product we offer is carefully selected to meet the highest standards of quality and care for your beauty needs.
             </p>
@@ -38,21 +39,22 @@ const About = () => {
       <div className="about-images">
         <div className="about-image-big">
           <img
-            src="https://www.cnet.com/a/img/resize/04bb56affe028206d284dea10408493a01663be7/hub/2024/10/23/c95a96d7-e0a1-41fb-8ddf-df17ecaecfdb/gettyimages-1937066463.jpg?auto=webp&fit=crop&height=675&width=1200"
+            src="https://www.paccosmetics.com/cdn/shop/collections/Foundation.jpg?v=1718014454&width=2048"
             alt="Beauty Product"
           />
         </div>
         <div className="about-image-small">
           <img
-            src="https://www.moussonews.com/wp-content/uploads/2023/02/Capture-decran-2023-02-10-160343-1024x674.png"
+            src="https://natashadenona.com/cdn/shop/files/Eyes_INAW_Website_PPG_Carrousel_01_Packshot.jpg?v=1725889425"
             alt="Beauty Product 1"
           />
           <img
-            src="https://fashionintern.co.uk/uploads/2023/08/what-is-the-difference-between-makeup-and-cosmetics.webp"
+            src="https://img.freepik.com/premium-photo/black-woman-face-smile-makeup-foundation-cosmetics-skincare-against-brown-studio-background-portrait-happy-african-female-applying-cosmetic-beauty-product-with-brush-skin-toner_590464-106484.jpg"
             alt="Beauty Product 2"
           />
         </div>
       </div>
+    </div>
     </div>
   );
 };

@@ -2,6 +2,8 @@
 .about-container {
     display: grid;
     background-color: #f9f9f9;
+    margin-bottom: 100px;
+
     grid-template-columns: 1fr 1fr; /* Equal width for content and images */
     gap: 10px;
     padding: 10px;
@@ -13,25 +15,27 @@
   
   /* Content section */
   .about-content {
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     gap: 10px;
-    align-items: flex-start; /* Ensure alignment of all elements */
+    align-items: center; /* Ensure alignment of all elements */
   }
   
   .about-content h2 {
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     color: #333;
+   
     font-weight: bold;
     margin-bottom: 40px; /* Space between About Us and first title */
-    align-self: flex-start; /* Align with numbers and titles */
+    align-items: center;
   }
   
   /* Item styling */
   .about-item {
     display: flex;
     align-items: flex-start;
-    gap: 20px; /* Space between number and text */
+    gap: 30px; /* Space between number and text */
     margin-bottom: 50px;
   }
   
@@ -64,7 +68,7 @@
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 2; /* Limit paragraph to 2 lines */
+   
     -webkit-box-orient: vertical;
   }
   
@@ -72,28 +76,40 @@
   .about-images {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    margin-top: 50px;
+    gap: 40px;
+    margin-right: 50px;
   }
   
   .about-image-big img {
     width: 100%;
-    height: 300px;
+    height: 350px;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+    
   }
   
   .about-image-small {
     display: flex;
-    gap: 20px;
+    gap: 40px;
   }
   
   .about-image-small img {
     flex: 1;
-    height: 150px;
+    height: 250px;
     object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 20px;
+   
+  }
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+  }
+  
+  .animate-on-scroll.in-view {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   /* Responsive design */
