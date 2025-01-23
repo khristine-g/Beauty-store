@@ -41,8 +41,12 @@
 
 /* Navbar link items */
 .navbar-links a {
+    display: flex;
+  justify-content: space-between;
+  align-items: center;
   text-decoration: none;
   color: white;
+ 
   font-size: 12px;
   font-weight: bold;
   text-transform: uppercase;
@@ -78,7 +82,7 @@
 /* Search container */
 .search-container {
   position: relative;
-  width: 150px; /* Smaller width for the search bar */
+  width: 300px; /* Smaller width for the search bar */
   height: 30px;
 }
 

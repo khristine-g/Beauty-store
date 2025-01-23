@@ -1,15 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { products } from "./Data.js"; // Ensure this is the correct path for your data
 import "../ProductList.css";
 
 const ProductList = ({ selectedCategory, setCart }) => {
+  const [searchQuery, setSearchQuery] = useState(""); // State to manage search query
   const navigate = useNavigate();
 
   // Filter products based on selected category or show all products if no category is selected
+  // Also filter products based on the search query
   const filteredProducts = selectedCategory
-    ? products.filter((product) => product.categoryId === selectedCategory.id)
-    : products; // Show all products if no category is selected
+    ? products.filter(
+        (product) =>
+          product.categoryId === selectedCategory.id &&
+          product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      )
+    : products.filter((product) =>
+        product.name.toLowerCase().includes(searchQuery.toLowerCase())
+      ); // Filter by search query if no category is selected
 
   // Only show the first 12 products
   const productsToDisplay = filteredProducts.slice(0, 12);
@@ -45,6 +53,10 @@ const ProductList = ({ selectedCategory, setCart }) => {
     navigate("/all-products"); // Navigate to the full products page
   };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value); // Update search query state
+  };
+
   return (
     <div className="product-list">
       <h2 className="product-list-title">
@@ -55,6 +67,18 @@ const ProductList = ({ selectedCategory, setCart }) => {
       <p className="product-subtext">
         The World's Premium Brands In One Destination.
       </p>
+      
+      {/* Search Bar */}
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search for products..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="search-input"
+        />
+      </div>
+
       <div className="products-container">
         {productsToDisplay.length > 0 ? (
           productsToDisplay.map((product) => (
@@ -84,7 +108,7 @@ const ProductList = ({ selectedCategory, setCart }) => {
             </div>
           ))
         ) : (
-          <p>No products found in this category.</p>
+          <p>No products found matching your search.</p>
         )}
       </div>
 

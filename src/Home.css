@@ -1,8 +1,10 @@
 .hero {
   position: relative;
   width: 100vw;
-  height: 92vh;
+  height: 70vh;
   overflow: hidden;
+  object-fit: cover;
+  margin-bottom: 50px;
 }
 
 .hero-slide {
@@ -72,7 +74,7 @@
   border: none;
   padding: 12px 25px;
   font-size: 1rem;
-  border-radius: 50px;
+  border-radius: 10px;
   cursor: pointer;
   box-shadow: 0 4px 10px rgba(255, 111, 97, 0.4);
   transition: all 0.3s ease-in-out;

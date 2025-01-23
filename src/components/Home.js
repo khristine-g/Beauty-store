@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
+import {useNavigate} from  "react-router-dom";
 import Category from './Category';
 import ProductList from './ProductList';
 import Shop from './Shop';
 import TrendingProducts from './TrendingProducts';
 import ProductSections from './ProductSections';
 import NewsletterModal from './NewsletterModal';
+import About from './About';
 import Marquee from './Marquee';
 import Offer from './Offer';
 import Footer from './Footer';
@@ -30,6 +32,7 @@ const Home = ({ onSelectCategory }) => {
 
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isModalOpen, setModalOpen] = useState(true);
+  const navigate= useNavigate();
 
   useEffect(() => {
     const intervalId = setInterval(() => {
@@ -40,6 +43,10 @@ const Home = ({ onSelectCategory }) => {
   }, [slides.length]);
 
   const closeModal = () => setModalOpen(false);
+  const handleClick= () =>{
+
+    navigate("/trending-products");
+  }
 
   return (
     <>
@@ -53,15 +60,18 @@ const Home = ({ onSelectCategory }) => {
             {slide.image && <img src={slide.image} alt={slide.text} />}
             <div className={`hero-content ${index === currentSlide ? 'animate' : ''}`}>
               <h1>{slide.text}</h1>
-              <button className="cta-btn">Explore Now<span className="arrow-icon">→</span></button>
+              <button className="cta-btn" onClick={handleClick} >EXPLORE NOW<span className="arrow-icon">→</span></button>
             </div>
           </div>
         ))}
       </div>
-      <Marquee />
+    
       <Category onSelectCategory={onSelectCategory} />
+      <Marquee />
       <TrendingProducts />
+      
       <Offer />
+      <About />
       <ProductSections />
       
      

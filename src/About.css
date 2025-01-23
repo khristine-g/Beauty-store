@@ -1,0 +1,110 @@
+/* Container for the entire section */
+.about-container {
+    display: grid;
+    background-color: #f9f9f9;
+    grid-template-columns: 1fr 1fr; /* Equal width for content and images */
+    gap: 10px;
+    padding: 10px;
+   max-width: 60vw;
+    height: 60vh;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+  
+  /* Content section */
+  .about-content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start; /* Ensure alignment of all elements */
+  }
+  
+  .about-content h2 {
+    font-size: 2.5rem;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 40px; /* Space between About Us and first title */
+    align-self: flex-start; /* Align with numbers and titles */
+  }
+  
+  /* Item styling */
+  .about-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px; /* Space between number and text */
+    margin-bottom: 50px;
+  }
+  
+  .about-number {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #333;
+    line-height: 1;
+  }
+  
+  .about-text {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .about-text h3 {
+    font-size: 2rem;
+    color: #333;
+    font-weight: bold;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    margin: 0;
+  }
+  
+  .about-text p {
+    font-size: 1.2rem;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: #555;
+    line-height: 1.4;
+    margin: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit paragraph to 2 lines */
+    -webkit-box-orient: vertical;
+  }
+  
+  /* Image section */
+  .about-images {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .about-image-big img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .about-image-small {
+    display: flex;
+    gap: 20px;
+  }
+  
+  .about-image-small img {
+    flex: 1;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px) {
+    .about-container {
+      grid-template-columns: 1fr;
+    }
+  
+    .about-image-small {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  
