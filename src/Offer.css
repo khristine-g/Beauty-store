@@ -1,227 +1,156 @@
-/* Overall container */
+/* Container */
 .offer-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  padding: 40px 20px;
   min-height: 100vh;
-  padding: 20px;
+  background: #f9f9f9;
   box-sizing: border-box;
-  position: relative;
- 
 }
 
+/* Title */
 .offer-title {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
+  font-size: 2.8rem;
   color: #333;
-  position: relative;
   font-family: 'Roboto', sans-serif;
   font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  position: relative;
 }
 
 .offer-title::after {
   content: "";
   display: block;
-  width: 0;
+  width: 80px;
   height: 3px;
   background-color: #333;
   margin: 10px auto 0;
-  animation: expand-contract 3s infinite ease-in-out;
 }
 
-@keyframes expand-contract {
-  0%, 100% {
-      width: 0;
-  }
-  50% {
-      width: 200px;
-  }
+/* Carousel */
+.offer-carousel {
+  width: 90%;
+  max-width: 1200px;
 }
 
-/* Cards & Carousel */
-.offer-card {
+.carousel-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
+}
+
+.offer-slide {
   display: flex;
   flex-direction: row;
-
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  background: white;
+  border-radius: 15px;
   overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
   width: 100%;
-  height: 60vh;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-  position: relative;
-  opacity: 0;
-  transform: translateX(100%);
-  animation: slide-in 1s forwards;
+  max-width: 1200px;
+  height: 100%;
+  transition: transform 0.4s ease;
 }
 
-@keyframes slide-in {
-  0% {
-      transform: translateX(100%);
-      opacity: 0;
-  }
-  100% {
-      transform: translateX(0);
-      opacity: 1;
-  }
-}
-
-.offer-card:hover {
-  transform: translateX(0);
-  opacity: 1;
-}
-
-@media (max-width: 768px) {
-  .offer-card {
-      flex-direction: column;
-      width: 100%;
-      height: auto;
-      animation: slide-in 1s forwards;
-  }
-}
-
-/* Image styles */
 .offer-image {
   width: 50%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease;
- 
 }
 
-.offer-image:hover {
-  transform: scale(1.1);
-}
-
-@media (max-width: 768px) {
-  .offer-image {
-      width: 100%;
-      height: 50%;
-  }
-}
-
-/* Details section */
 .offer-details {
- 
+  padding: 30px;
   width: 50%;
-  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
-  background: rgba(255, 255, 255, 0.8);
-  transition: background 0.3s ease;
 }
 
-.offer-details:hover {
-  background: rgba(255, 255, 255, 1);
-}
 
-@media (max-width: 768px) {
-  .offer-details {
-      width: 100%;
-      padding: 20px;
-  }
-}
 
+/* Align text and button vertically */
 .offer-item-title {
-  font-size: 2rem;
+  font-size: 1.8rem;
   font-weight: bold;
   color: #333;
-  margin-bottom: 20px;
   font-family: 'Roboto', sans-serif;
-  margin-left: 120px;
-}
-
-@media (max-width: 768px) {
-  .offer-title {
-      font-size: 1.5rem;
-  }
+  margin-bottom: 15px;
 }
 
 .offer-description {
   font-size: 1rem;
   color: #666;
-  margin-bottom: 30px;
-  line-height: 1.5;
+  line-height: 1.6;
   font-family: 'Roboto', sans-serif;
+  margin-bottom: 20px;
+ margin-left: 100px;
 }
 
-@media (max-width: 768px) {
-  .offer-description {
-      font-size: 0.9rem;
-  }
-}
-
-/* Price section */
 .offer-prices {
-  margin-bottom: 30px;
-  margin-left: 120px;
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+  color: #555;
+  margin-left: 10px;
 }
 
 .offer-previous-price {
-  font-size: 1.2rem;
-  color: #999;
   text-decoration: line-through;
   margin-right: 10px;
+  color: #999;
 }
 
 .offer-new-price {
-  font-size: 1.8rem;
+  font-size: 1.6rem;
   font-weight: bold;
-  color: black;
+  color: #000;
 }
 
 /* Button styles */
 .offer-add-to-cart-btn {
-  background-color: black;
+  background-color: #000;
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
-  width: 300px;
   cursor: pointer;
   transition: background 0.3s ease;
-  margin-left: 120px;
 }
 
 .offer-add-to-cart-btn:hover {
   background: #333;
 }
 
+/* Responsiveness */
 @media (max-width: 768px) {
-  .offer-add-to-cart-btn {
-      width: 100%;
+  .offer-slide {
+    flex-direction: column;
   }
-}
 
-/* Success Modal */
-@media (max-width: 768px) {
-  .modal-body p {
-      font-size: 1rem;
+  .offer-image {
+    width: 100%;
+    height: 50%;
   }
-}
 
-/* Scroll animation */
-.animate-on-scroll {
-  opacity: 0;
-  transform: translateY(150px);
-  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
-}
-
-.animate-on-scroll.in-view {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Fade In */
-@keyframes fadeIn {
-  0% {
-      opacity: 0;
+  .offer-details {
+    width: 100%;
+    text-align: center;
   }
-  100% {
-      opacity: 1;
+
+  .offer-item-title {
+    font-size: 1.8rem;
+  }
+
+  .offer-description {
+    font-size: 1rem;
+  }
+
+  .offer-prices {
+    justify-content: center;
   }
 }

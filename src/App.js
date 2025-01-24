@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
+
 import Navbar from './components/Navbar';
 import Category from './components/Category';
 import CategoryProducts from "./components/CategoryProducts";
@@ -66,9 +67,13 @@ function App() {
   return (
     <SearchProvider>
       <Router>
+      
+        
         <div className="App">
+       
           {/* Navbar Component */}
           <Navbar onSearch={handleSearchResults} />
+            
           
           {/* Search Results Section: Display results at the top of the page */}
           <div className="search-results">

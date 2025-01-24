@@ -36,7 +36,7 @@ const Sales = () => {
       <div
         className="sales-image"
         style={{
-          backgroundImage: `url('https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2024-06/Untitled%20design%20%281%29.jpg')`,
+          backgroundImage: `url('https://assetsio.reedpopcdn.com/makeup-article-(3).jpg')`,
           objectFit:'Cover',
         }}
       ></div>
@@ -74,4 +74,5 @@ const Sales = () => {
 };
 
 export default Sales;
-//https://assetsio.reedpopcdn.com/makeup-article-(3).jpg'
+// https://assetsio.reedpopcdn.com/makeup-article-(3).jpg
+//https://indian-retailer.s3.ap-south-1.amazonaws.com/s3fs-public/2024-06/Untitled%20design%20%281%29.jpg

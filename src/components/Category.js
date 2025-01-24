@@ -1,5 +1,5 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,Link} from "react-router-dom";
 import "../Category.css";
 import { categories } from "./Data"; // Assuming you have a categories data file
 
@@ -21,13 +21,13 @@ const Category = () => {
         {/* Buttons for categories */}
         <div className="category-buttons">
           {categories.map((category) => (
-            <button
+            <Link
               key={category.id}
               className="category-button"
               onClick={() => handleCategoryClick(category)} // Handle category click
             >
               {category.name}
-            </button>
+            </Link>
           ))}
         </div>
 

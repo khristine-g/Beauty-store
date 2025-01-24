@@ -40,81 +40,82 @@ function Offer({ setCart }) {
   const [showModal, setShowModal] = useState(false);
 
   const handleAddToCart = (product) => {
-    try {
-      const storedCart = localStorage.getItem('cart');
-      const parsedCart = storedCart ? JSON.parse(storedCart) : [];
-      const existingProductIndex = parsedCart.findIndex((p) => p.id === product.id);
+    const storedCart = localStorage.getItem('cart');
+    const parsedCart = storedCart ? JSON.parse(storedCart) : [];
+    const existingProductIndex = parsedCart.findIndex((p) => p.id === product.id);
 
-      if (existingProductIndex !== -1) {
-        parsedCart[existingProductIndex].quantity += 1;
-      } else {
-        parsedCart.push({ ...product, quantity: 1 });
-      }
-
-      localStorage.setItem('cart', JSON.stringify(parsedCart));
-      setCart(parsedCart);
-      setShowModal(true);
-    } catch (error) {
-      console.error('Error adding product to cart:', error);
+    if (existingProductIndex !== -1) {
+      parsedCart[existingProductIndex].quantity += 1;
+    } else {
+      parsedCart.push({ ...product, quantity: 1 });
     }
+
+    localStorage.setItem('cart', JSON.stringify(parsedCart));
+    setCart(parsedCart);
+    setShowModal(true);
   };
 
   const handleCloseModal = () => setShowModal(false);
 
   return (
-    <div className="animate-on-scroll">
+    <div className="offer-container">
       <h1 className="offer-title">Exclusive Offers</h1>
-      <div className="offer-container">
-        <Carousel interval={2000} pause="hover" fade>
-          {products.map((product) => (
-            <Carousel.Item key={product.id}>
-              <div className="offer-card">
-                <img
-                  className="offer-image"
-                  src={product.image}
-                  alt={product.name}
-                />
-                <div className="offer-details">
-                  <h2 className="offer-item-title">{product.name}</h2>
-                  <p className="offer-description">{product.description}</p>
-                  <div className="offer-prices">
-                    <span className="offer-previous-price">
-                      ${product.previousPrice.toFixed(2)}
-                    </span>
-                    <span className="offer-new-price">
-                      ${product.newPrice.toFixed(2)}
-                    </span>
-                  </div>
-                  <button
-                    className="offer-add-to-cart-btn"
-                    onClick={() => handleAddToCart(product)}
-                  >
-                    Add to Cart
-                  </button>
+      <Carousel
+        interval={3000}
+        pause="hover"
+        fade
+        className="offer-carousel"
+        indicators={false}
+        controls={true}
+      >
+        {products.map((product) => (
+          <Carousel.Item key={product.id} className="carousel-item">
+            <div className="offer-slide">
+              <img
+                className="offer-image"
+                src={product.image}
+                alt={product.name}
+              />
+              <div className="offer-details">
+                <h2 className="offer-item-title">{product.name}</h2>
+                <p className="offer-description">{product.description}</p>
+                <div className="offer-prices">
+                  <span className="offer-previous-price">
+                    ${product.previousPrice.toFixed(2)}
+                  </span>
+                  <span className="offer-new-price">
+                    ${product.newPrice.toFixed(2)}
+                  </span>
                 </div>
+                <button
+                  className="offer-add-to-cart-btn"
+                  onClick={() => handleAddToCart(product)}
+                >
+                  Add to Cart
+                </button>
               </div>
-            </Carousel.Item>
-          ))}
-        </Carousel>
-
-        {/* Success Modal */}
-        <Modal show={showModal} onHide={handleCloseModal}>
-          <Modal.Header closeButton>
-            <Modal.Title>Success</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
-            <div className="text-center">
-              <span style={{ fontSize: '24px', color: 'green' }}>✔️</span>
-              <p>Product added to cart successfully!</p>
             </div>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={handleCloseModal}>
-              OK
-            </Button>
-          </Modal.Footer>
-        </Modal>
-      </div>
+          </Carousel.Item>
+        ))}
+      </Carousel>
+
+      {/* Success Modal */}
+      <Modal show={showModal} onHide={handleCloseModal}>
+        <Modal.Header closeButton>
+          <Modal.Title>Success</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <div className="text-center">
+            <span style={{ fontSize: '24px', color: 'green' }}>✔️</span>
+            <p>Product added to cart successfully!</p>
+          </div>
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleCloseModal}>
+            OK
+          </Button>
+        </Modal.Footer>
+      </Modal>
     </div>
   );
 }

@@ -1,6 +1,6 @@
 /* General container styling */
 .category-container {
-  padding: 2rem;
+  padding: 3rem 2rem; /* Increased padding for a spacious layout */
   background-color: #f9f9f9;
   text-align: center;
   margin-bottom: 100px;
@@ -8,37 +8,37 @@
 
 /* Title styling */
 .category-title {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
-  color: #333;
+  font-size: 2rem; /* Large and bold for a modern feel */
+  font-weight: 700;
+  color: #222; /* Darker color for better contrast */
+  margin-bottom: 1rem;
+  font-family: 'Arial', sans-serif; /* Clean and modern font */
+  text-transform: uppercase; /* Sleek look */
+  letter-spacing: 1.5px; /* Spacing between letters */
   position: relative;
-  
-}
-.category-title::after {
-  content: ""; /* Empty content for the line */
-  display: block; /* Makes it appear as a block-level element */
-  width: 0; /* Start with no width */
-  height: 3px; /* Adjust the height of the line as needed */
-  background-color: #333; /* Line color */
-  margin: 10px auto 0; /* Adds spacing and centers the line */
-  animation: expand-contract 3s infinite ease-in-out; /* Apply the animation */
 }
 
-@keyframes expand-contract {
-  0%, 100% {
-    width: 0; /* The line starts and ends with no width */
-  }
-  50% {
-    width: 200px; /* The line expands to 50px at its widest */
-  }
+/* Line under title */
+.category-title::after {
+  content: ""; /* Empty content for the line */
+  display: block; /* Block-level element for line */
+  width: 80px; /* Centered line with fixed width */
+  height: 3px; /* Line height */
+  background-color: #555; /* Line color */
+  margin: 10px auto; /* Center the line below the title */
+  border-radius: 2px; /* Rounded edges */
 }
 
 /* Subheader styling */
 .category-subheader {
-  font-size: 1.2rem;
-  color: #666;
+  font-size: 1.2rem; /* Larger font size for visibility */
+  color: #555; /* Subtle gray text */
   margin-bottom: 2rem;
-
+  font-family: 'Georgia', serif; /* Modern serif font for elegance */
+  line-height: 1.6; /* Spacing between lines */
+  max-width: 600px; /* Restrict width for readability */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Buttons container styling */
@@ -53,10 +53,11 @@
 /* Individual button styling */
 .category-button {
   padding: 0.8rem 1.5rem;
-   width: 150px;
+  width: 150px;
   border-radius: 20px;
-  background: #f3f3f3;
-  border: 1px solid #ddd;
+  /* background: #f3f3f3;
+  border: 1px solid #ddd; */
+  text-decoration: none;
   color: #555;
   font-size: 1rem;
   font-weight: bold;
@@ -65,15 +66,15 @@
 }
 
 .category-button:hover {
-  background-color: #000;
-  color: white;
+  color:#bf4080;
+ 
 }
 
-/* Grid for categories - 1 row on large screens, 3 per row on smaller screens */
+/* Grid for categories */
 .category-grid {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* Default: 6 categories per row on large screens */
-  gap: 1.5rem; /* Increased gap between cards */
+  gap: 20px; /* Space between cards */
   justify-content: center;
   max-width: 100%;
   margin: 0 auto;
@@ -84,12 +85,12 @@
 /* Card styling */
 .category-card {
   position: relative;
-  border-radius: 60px;
+  border-radius: 12px;
   overflow: hidden;
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 350px; /* Set a max width for each card */
+  max-width: 350px; /* Max width for each card */
   margin: 0 auto;
 }
 
@@ -101,10 +102,11 @@
 /* Image styling */
 .category-image {
   width: 100%;
-  height: 200px; /* Set fixed height for category images */
+  height: 200px; /* Fixed height for images */
   object-fit: cover;
   border-radius: 12px;
 }
+
 .category-name {
   margin-top: 10px;
   font-size: 16px;
@@ -122,15 +124,15 @@
 
 @media (max-width: 768px) {
   .category-grid {
-    grid-template-columns: repeat(3, 1fr); 
+    grid-template-columns: repeat(3, 1fr);
   }
 
   .category-title {
-    font-size: 2rem; /* Smaller font size on small screens */
+    font-size: 2.5rem; /* Adjusted title size for smaller screens */
   }
 
   .category-subheader {
-    font-size: 1rem; /* Smaller font size on small screens */
+    font-size: 1.2rem; /* Adjusted subheader size */
   }
 
   .category-button {
@@ -145,11 +147,11 @@
   }
 
   .category-title {
-    font-size: 1.8rem; /* Further reduced font size for very small screens */
+    font-size: 2rem; /* Further reduced title size */
   }
 
   .category-subheader {
-    font-size: 0.9rem; /* Further reduced font size */
+    font-size: 1rem; /* Smaller subheader size */
   }
 
   .category-button {

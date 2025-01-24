@@ -1,9 +1,9 @@
 import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
-import { products } from "./Data.js"; // Adjust the path to your data file
+import { FaSearch, FaBars, FaTimes, FaShoppingCart } from "react-icons/fa";
+import { products } from "./Data.js";
 import { SearchContext } from "./SearchContext";
-import "../Navbar.css"; // Adjust the path to your CSS file
+import "../Navbar.css";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -11,7 +11,6 @@ const Navbar = () => {
   const [searchInput, setSearchInput] = useState("");
   const { setSearchResults } = useContext(SearchContext);
 
-  // Filter products based on search input
   const handleSearch = (query) => {
     const filteredProducts = products.filter((product) =>
       product.name.toLowerCase().includes(query.toLowerCase())
@@ -19,7 +18,6 @@ const Navbar = () => {
     setSearchResults(filteredProducts);
   };
 
-  // Handle scroll to add background on navbar
   const handleScroll = () => {
     setScrolled(window.scrollY > 50);
   };
@@ -33,36 +31,27 @@ const Navbar = () => {
 
   return (
     <nav className={`beauty-navbar ${scrolled ? "navbar-scrolled" : ""}`}>
-      {/* Hamburger menu for mobile */}
+      <div className="beauty-navbar-brand">TRUE BEAUTY</div>
+
       <div className="navbar-toggle" onClick={() => setMenuOpen(!menuOpen)}>
         {menuOpen ? <FaTimes /> : <FaBars />}
       </div>
 
-      <div className="beauty-navbar-brand">TRUE BEAUTY</div>
-
-      {/* Navbar links */}
       <ul className={`navbar-links ${menuOpen ? "active" : ""}`}>
         <li>
-          <Link to="/" onClick={() => setMenuOpen(false)}>
-            HOME
-          </Link>
+          <Link to="/" onClick={() => setMenuOpen(false)}>Home</Link>
+        </li>
+        <li>
+          <Link to="/signup" onClick={() => setMenuOpen(false)}>Signup</Link>
+        </li>
+        <li>
+          <Link to="/login" onClick={() => setMenuOpen(false)}>Login</Link>
         </li>
         <li>
           <Link to="/cart" onClick={() => setMenuOpen(false)}>
-            CART
+            <FaShoppingCart className="cart-icon" />
           </Link>
         </li>
-        <li>
-          <Link to="/signup" onClick={() => setMenuOpen(false)}>
-            SIGNUP
-          </Link>
-        </li>
-        <li>
-          <Link to="/login" onClick={() => setMenuOpen(false)}>
-            LOGIN
-          </Link>
-        </li>
-        {/* Search bar */}
         <form className="search-form" onSubmit={(e) => e.preventDefault()}>
           <div className="search-container">
             <input

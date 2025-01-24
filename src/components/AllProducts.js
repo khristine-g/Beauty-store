@@ -1,3 +1,5 @@
+//Allproducts.js
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { products } from "./Data.js"; // Ensure this is the correct path for your data

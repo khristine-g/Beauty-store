@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import {useNavigate} from  "react-router-dom";
+
 import Category from './Category';
 import ProductList from './ProductList';
 import Shop from './Shop';
 import TrendingProducts from './TrendingProducts';
 import ProductSections from './ProductSections';
-import NewsletterModal from './NewsletterModal';
+
 import Sales from './Sales';
 import Reviews from './Reviews';
 import About from './About';
@@ -33,7 +34,7 @@ const Home = ({ onSelectCategory }) => {
   ];
 
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [isModalOpen, setModalOpen] = useState(true);
+ 
   const navigate= useNavigate();
 
   useEffect(() => {
@@ -44,7 +45,6 @@ const Home = ({ onSelectCategory }) => {
     return () => clearInterval(intervalId);
   }, [slides.length]);
 
-  const closeModal = () => setModalOpen(false);
   const handleClick= () =>{
 
     navigate("/trending-products");
@@ -75,17 +75,22 @@ const Home = ({ onSelectCategory }) => {
       <Marquee />
       
       <Offer />
-      <About />
       <ProductSections />
       <Sales />
+
+      
       <Reviews />
+      <Shop />
+      <About />
+      
+      
       
      
       <ProductList />
-      <Shop />
+      
      
       <Footer />
-      {isModalOpen && <NewsletterModal onClose={closeModal} />}
+     
     </>
   );
 };
