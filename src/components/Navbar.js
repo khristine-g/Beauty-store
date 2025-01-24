@@ -3,11 +3,13 @@ import { Link } from "react-router-dom";
 import { FaSearch, FaBars, FaTimes, FaShoppingCart } from "react-icons/fa";
 import { products } from "./Data.js";
 import { SearchContext } from "./SearchContext";
+import SearchModal from "./SearchModal";
 import "../Navbar.css";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
   const [searchInput, setSearchInput] = useState("");
   const { setSearchResults } = useContext(SearchContext);
 
@@ -52,22 +54,24 @@ const Navbar = () => {
             <FaShoppingCart className="cart-icon" />
           </Link>
         </li>
-        <form className="search-form" onSubmit={(e) => e.preventDefault()}>
-          <div className="search-container">
-            <input
-              type="text"
-              className="search-input"
-              placeholder="Search..."
-              value={searchInput}
-              onChange={(e) => {
-                setSearchInput(e.target.value);
-                handleSearch(e.target.value);
-              }}
-            />
-            <FaSearch className="search-icon" />
-          </div>
-        </form>
       </ul>
+
+      {/* Search Icon */}
+      <FaSearch
+        className="search-icon"
+        onClick={() => setModalOpen(true)}
+        style={{ cursor: "pointer" }}
+      />
+
+      {/* Search Modal */}
+      {modalOpen && (
+        <SearchModal
+          searchInput={searchInput}
+          setSearchInput={setSearchInput}
+          handleSearch={handleSearch}
+          closeModal={() => setModalOpen(false)}
+        />
+      )}
     </nav>
   );
 };

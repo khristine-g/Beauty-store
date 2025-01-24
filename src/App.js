@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import Home from './components/Home';
-
 import Navbar from './components/Navbar';
 import Category from './components/Category';
-import CategoryProducts from "./components/CategoryProducts";
+import CategoryProducts from './components/CategoryProducts';
 import ProductList from './components/ProductList';
 import TrendingProducts from './components/TrendingProducts';
-import { SearchProvider } from "./components/SearchContext";
-
+import { SearchProvider } from './components/SearchContext';
 import Cart from './components/Cart';
 import Login from './components/Login';
 import Signup from './components/Signup';
@@ -17,31 +15,32 @@ import ProductInfo from './components/ProductInfo';
 import useScrollAnimation from './components/useScrollAnimation';
 import AllProducts from './components/AllProducts';
 import OrderConfirmation from './components/OrderConfirmation';
+import SearchModal from './components/SearchModal'; // Import SearchModal
 
 import './App.css';
 
-// Example category data (replace with actual data)
 const categories = [
   { id: 1, name: 'Electronics' },
   { id: 2, name: 'Clothing' },
   { id: 3, name: 'Furniture' },
-  // Add more categories as needed
 ];
 
 function App() {
-  useScrollAnimation(); 
+  useScrollAnimation();
+  
   const [cart, setCart] = useState([]);
   const [selectedCategory, setSelectedCategory] = useState(null);
   const [searchResults, setSearchResults] = useState([]);
+  const [searchInput, setSearchInput] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(false); // State to control the modal visibility
 
   useEffect(() => {
     const storedCart = localStorage.getItem('cart');
     setCart(storedCart ? JSON.parse(storedCart) : []);
   }, []);
 
-
   const handleSelectCategory = (categoryId) => {
-    const category = categories.find(cat => cat.id === categoryId); // Ensure categories are accessible
+    const category = categories.find(cat => cat.id === categoryId);
     setSelectedCategory(category);
   };
 
@@ -64,33 +63,36 @@ function App() {
     setSearchResults(filteredProducts); // Store filtered products in state
   };
 
+  const handleSearch = (searchTerm) => {
+    // Call a function to filter products based on search input
+    // This function can fetch products from an API or filter from existing data
+    // For now, I'm using the `handleSearchResults` to filter products based on search term.
+    const filteredProducts = []; // Replace with your actual search filtering logic
+    setSearchResults(filteredProducts);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
   return (
     <SearchProvider>
       <Router>
-      
-        
         <div className="App">
-       
           {/* Navbar Component */}
-          <Navbar onSearch={handleSearchResults} />
-            
+          <Navbar onSearch={handleSearchResults} openModal={() => setIsModalOpen(true)} />
           
-          {/* Search Results Section: Display results at the top of the page */}
-          <div className="search-results">
-            {searchResults.length > 0 ? (
-              searchResults.map((product) => (
-                <div key={product.id} className="product-item">
-                  <h3>{product.name}</h3>
-                  <img src={product.image} alt={product.name} />
-                  <p>{product.price}</p>
-                </div>
-              ))
-            ) : (
-              <p>No products found</p>
-            )}
-          </div>
+          {/* Conditionally render SearchModal */}
+          {isModalOpen && (
+            <SearchModal 
+              searchInput={searchInput} 
+              setSearchInput={setSearchInput} 
+              handleSearch={handleSearch} 
+              closeModal={closeModal}
+              setCart={setCart}  // Pass setCart here
+            />
+          )}
 
-          {/* Main Content */}
           <Routes>
             <Route path="/" element={<Home onSelectCategory={handleSelectCategory} />} />
             <Route path="/products" element={<ProductList selectedCategory={selectedCategory} cart={cart} setCart={setCart} removeFromCart={removeFromCart} searchResults={searchResults} />} />

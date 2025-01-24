@@ -61,7 +61,7 @@ function Offer({ setCart }) {
     <div className="offer-container">
       <h1 className="offer-title">Exclusive Offers</h1>
       <Carousel
-        interval={3000}
+        interval={2000}
         pause="hover"
         fade
         className="offer-carousel"
