@@ -47,19 +47,19 @@ const Sales = () => {
         <h2 className="sales-subtitle">End of Season Sale</h2>
         <div className="countdown">
           <div className="time-box">
-            <span className="time-value">{timeLeft.days || "0"}</span>
+            <span className="time-value">{timeLeft.days || "14"}</span>
             <span className="time-label">Days</span>
           </div>
           <div className="time-box">
-            <span className="time-value">{timeLeft.hours || "0"}</span>
+            <span className="time-value">{timeLeft.hours || "18"}</span>
             <span className="time-label">Hours</span>
           </div>
           <div className="time-box">
-            <span className="time-value">{timeLeft.minutes || "0"}</span>
+            <span className="time-value">{timeLeft.minutes || "36"}</span>
             <span className="time-label">Minutes</span>
           </div>
           <div className="time-box">
-            <span className="time-value">{timeLeft.seconds || "0"}</span>
+            <span className="time-value">{timeLeft.seconds || "28"}</span>
             <span className="time-label">Seconds</span>
           </div>
         </div>
