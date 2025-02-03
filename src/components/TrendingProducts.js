@@ -82,7 +82,7 @@ const TrendingProducts = ({ setCart }) => {
             <img src={item.image} alt={item.name} className="product-image" />
             <div className="product-details">
               <h3 className="product-name">{item.name}</h3>
-              <p className="product-price">ksh {item.price.toFixed(2)}</p>
+              <p className="product-price">Ksh {item.price.toFixed(2)}</p>
               <button
                 className="quick-add-btn"
                 onClick={(e) => {

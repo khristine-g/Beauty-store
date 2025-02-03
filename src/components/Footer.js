@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="footer-container">
       <div className="footer-section">
-        <h2>True Beauty</h2>
+        <h3 className='footer-logo'>True Beauty</h3>
         <p>Lorem quas utamur delicata qui, vix ei prima mentitum omnesque. Duo corrumpit cotidieque ne.</p>
         <div className="social-media-icons">
           <a href="https://facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebookF /></a>
@@ -56,4 +56,3 @@ const Footer = () => {
 };
 
 export default Footer;
-

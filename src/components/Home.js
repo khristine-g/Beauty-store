@@ -14,17 +14,17 @@ import Marquee from './Marquee';
 import Offer from './Offer';
 import Footer from './Footer';
 import '../Home.css';
-import beautyImage1 from '../images/beauty3.jpg';
-import beautyImage2 from '../images/beauty4.jpg';
+// import beautyImage1 from '../images/beauty3.jpg';
+// import beautyImage2 from '../images/beauty4.jpg';
 
 const Home = ({ onSelectCategory }) => {
   const slides = [
     {
-      image: beautyImage2,
+      image: "https://cdn.shopify.com/s/files/1/0519/2243/6249/files/anti_aging_cream.jpg?v=1635925263",
       text: 'Discover Radiant Skin Today',
     },
     {
-      image: beautyImage1,
+      image: "https://www.byrdie.com/thmb/FVJiG9Hod8ZOZ04uqcWctIGoY80=/1500x0/filters:no_upscale():max_bytes(150000):strip_icc()/skincaredermtips-c9fbd02742ea47b9aaa6bf852d54292e.png",
       text: 'Stay Ahead with New Beauty Trends',
     },
     {

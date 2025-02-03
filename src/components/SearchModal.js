@@ -72,7 +72,7 @@ const SearchResults = ({ handleAddToCart }) => {
           <img src={product.image} alt={product.name} />
           <div className="result-details">
             <h3>{product.name}</h3>
-            <p>${product.price}</p>
+            <p>Ksh {product.price}</p>
             <button onClick={() => handleAddToCart(product)}>Add to Cart</button>
           </div>
         </div>
