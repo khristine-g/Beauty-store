@@ -3,7 +3,7 @@ import "../Sales.css";
 
 const Sales = () => {
   const calculateTimeLeft = () => {
-    const endTime = new Date("2025-10-01T00:00:00"); // Set your countdown end date
+    const endTime = new Date("2025-02-14T00:00:00"); // Set your countdown end date
     const now = new Date();
     const difference = endTime - now;
 
