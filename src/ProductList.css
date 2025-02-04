@@ -117,6 +117,17 @@
 .view-all-button:hover {
   background-color: #333;
 }
+/* Scroll Animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {

@@ -4,6 +4,7 @@ import '../ProductSections.css'; // Import the CSS file for styling
 
 const ProductSections = () => {
   return (
+   
     <div className="product-sections">
       <div className="section">
         <FaSprayCan className="section-icon" />
@@ -26,6 +27,7 @@ const ProductSections = () => {
         <p>A personal space, because time is yours.</p>
       </div>
     </div>
+   
   );
 };
 

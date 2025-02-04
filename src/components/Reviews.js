@@ -63,6 +63,7 @@ const Reviews = () => {
   const visibleReviews = reviewsData.slice(currentSlide * 3, currentSlide * 3 + 3);
 
   return (
+    <div className="animate-on-scroll">
     <div className="reviews-container">
       <h2 className="reviews-title">Our Client Reviews</h2>
       <div className="reviews-dots">
@@ -94,7 +95,7 @@ const Reviews = () => {
           </div>
         ))}
       </div>
-      
+      </div>
     </div>
   );
 };

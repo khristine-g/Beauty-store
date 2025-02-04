@@ -151,8 +151,20 @@
 .modal-footer .btn-secondary:hover {
   background: #555;
 }
+/* Scroll animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(150px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
 
-/* ✅ RESPONSIVENESS */
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+
 @media (max-width: 1024px) {
   .offer-slide {
     flex-direction: column;

@@ -37,6 +37,7 @@ const Sales = () => {
   };
 
   return (
+
     <div className="sales-container">
       {/* Image Section */}
       <div
@@ -76,6 +77,7 @@ const Sales = () => {
         <button className="shop-now-btn" onClick={handleViewAll}>Shop Now</button>
       </div>
     </div>
+   
   );
 };
 

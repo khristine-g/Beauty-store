@@ -82,6 +82,19 @@
   .shop-now-btn:hover {
     background: #a1346c;
   }
+
+/* Scroll animation */
+.animate-on-scroll {
+  opacity: 0;
+  transform: translateY(150px);
+  transition: opacity 0.9s ease-out, transform 0.9s ease-out;
+}
+
+.animate-on-scroll.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
   
   @media (max-width: 768px) {
     .sales-container {

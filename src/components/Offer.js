@@ -58,6 +58,8 @@ function Offer({ setCart }) {
   const handleCloseModal = () => setShowModal(false);
 
   return (
+    <div className="animate-on-scroll">
+    
     <div className="offer-container">
       <h1 className="offer-title">Exclusive Offers</h1>
       <Carousel
@@ -117,6 +119,7 @@ function Offer({ setCart }) {
         </Modal.Footer>
       </Modal>
     </div>
+     </div>
   );
 }
 

@@ -47,6 +47,7 @@ const ProductList = ({ selectedCategory, setCart }) => {
   };
 
   return (
+    <div className="animate-on-scroll">
     <div className="product-list">
       <h2 className="product-list-title">
         {selectedCategory
@@ -92,6 +93,7 @@ const ProductList = ({ selectedCategory, setCart }) => {
           View All Products
         </button>
       </div>
+    </div>
     </div>
   );
 };
