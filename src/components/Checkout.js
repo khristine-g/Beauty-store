@@ -231,7 +231,7 @@ const Checkout = ({ cart, onPlaceOrder }) => {
       <div className="checkout-summary">
         <div className="cart-summary">
           <h2>Checkout Summary</h2>
-          <h3 style={{ color: 'green' }}>Cart Summary:</h3>
+        
           <ul className="check-list">
             {cart.map((product) => (
               <li key={product.id}>

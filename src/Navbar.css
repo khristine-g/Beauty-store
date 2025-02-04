@@ -22,7 +22,7 @@
 
 /* Navbar brand */
 .beauty-navbar-brand {
-  font-size: 24px; /* Larger for emphasis */
+  font-size: 24px;
   font-weight: bold;
   color: #fff;
   text-transform: uppercase;
@@ -31,7 +31,7 @@
   margin-left: 20px;
 }
 
-/* Center navbar links and search */
+/* Center navbar links */
 .navbar-links-container {
   display: flex;
   flex-direction: column;
@@ -40,20 +40,18 @@
   margin-right: 100px;
 }
 
-/* Navbar links container */
+/* Navbar links */
 .navbar-links {
   list-style: none;
   display: flex;
   align-items: center;
-  margin-left: 200px;
-  gap: 30px; /* Spacing between links */
+  gap: 30px;
   margin: 0;
   padding: 0;
 }
 
-/* Navbar link items */
+/* Navbar link styles */
 .navbar-links a {
- 
   text-decoration: none;
   color: white;
   font-size: 14px;
@@ -91,8 +89,8 @@
 /* Search container */
 .search-container {
   position: relative;
-  width: 350px; /* Modern search bar width */
-  height: 40px; /* Height for the search bar */
+  width: 350px;
+  height: 40px;
   margin-top: 50px;
   right: 30%;
 }
@@ -118,14 +116,11 @@
 
 /* Search icon */
 .search-icon {
-  position: absolute;
-  right: 35px;
-  top: 50%;
-  transform: translateY(-50%);
   font-size: 18px;
   color: white;
   cursor: pointer;
   margin-right: 15px;
+  
 }
 
 /* Cart icon */
@@ -137,37 +132,45 @@
   position: relative;
 }
 
-/* Hamburger menu toggle (mobile view) */
+/* Hamburger menu toggle */
 .navbar-toggle {
   display: none;
   font-size: 24px;
   cursor: pointer;
 }
 
-/* Responsive adjustments for mobile view */
+/* Mobile Responsive Navbar */
 @media (max-width: 768px) {
-  .navbar-links-container {
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
-
+  /* Navbar links (hidden by default) */
   .navbar-links {
+    position: fixed;
+    top: 0;
+    left: -100%; /* Initially off-screen */
+    width: 250px;
+    height: 100vh;
+    background-color: black;
     flex-direction: column;
-    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: left 0.3s ease-in-out; /* Smooth slide-in effect */
   }
 
   .navbar-links.active {
-    display: flex;
+    left: 0; /* Slide in from the left */
   }
 
+  /* Navbar toggle button */
   .navbar-toggle {
     display: block;
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    color: white;
   }
 
+  /* Ensure search bar is full width on mobile */
   .search-container {
-    width: 100%; /* Full width for the search bar on mobile */
+    width: 100%;
     margin-top: 10px;
   }
 }

@@ -1,22 +1,22 @@
-/* Container */
+/* General Styles */
 .offer-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 40px 20px;
-  min-height: 100vh;
+  height: 100vh;
   background: #f9f9f9;
   box-sizing: border-box;
 }
 
 /* Title */
 .offer-title {
-  font-size: 2.8rem;
-  color: #333;
-  font-family: 'Roboto', sans-serif;
+  font-size: 2.5rem;
+  color: #222;
+  font-family: 'Poppins', sans-serif;
   font-weight: bold;
   text-align: center;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
   position: relative;
 }
 
@@ -25,13 +25,13 @@
   display: block;
   width: 80px;
   height: 3px;
-  background-color: #333;
+  background-color: #222;
   margin: 10px auto 0;
 }
 
 /* Carousel */
 .offer-carousel {
-  width: 90%;
+  width: 95%;
   max-width: 1200px;
 }
 
@@ -39,9 +39,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 70vh;
+  height: auto;
 }
 
+/* Slide Content */
 .offer-slide {
   display: flex;
   flex-direction: row;
@@ -49,52 +50,53 @@
   background: white;
   border-radius: 15px;
   overflow: hidden;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
-  max-width: 1200px;
-  height: 100%;
+  max-width: 1500px;
+  height: 50vh;
   transition: transform 0.4s ease;
 }
 
+/* Product Image */
 .offer-image {
-  width: 50%;
-  height: 100%;
+  width: 300px;
+  margin: 10px;
+ 
+  max-height: 500px;
   object-fit: cover;
 }
 
+/* Product Details */
 .offer-details {
   padding: 30px;
   width: 50%;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  text-align: left;
 }
 
-
-
-/* Align text and button vertically */
 .offer-item-title {
   font-size: 1.8rem;
   font-weight: bold;
-  color: #333;
-  font-family: 'Roboto', sans-serif;
-  margin-bottom: 15px;
+  color: #222;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 10px;
 }
 
 .offer-description {
   font-size: 1rem;
-  color: #666;
+  color: #555;
   line-height: 1.6;
-  font-family: 'Roboto', sans-serif;
-  margin-bottom: 20px;
- margin-left: 100px;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 15px;
 }
 
+/* Pricing */
 .offer-prices {
   font-size: 1.2rem;
-  margin-bottom: 20px;
-  color: #555;
-  margin-left: 10px;
+  margin-bottom: 15px;
+  color: #333;
 }
 
 .offer-previous-price {
@@ -106,12 +108,12 @@
 .offer-new-price {
   font-size: 1.6rem;
   font-weight: bold;
-  color: #000;
+  color: #e60023;
 }
 
-/* Button styles */
+/* Add to Cart Button */
 .offer-add-to-cart-btn {
-  background-color: #000;
+  background: linear-gradient(135deg, #000, #444);
   color: #fff;
   font-size: 1rem;
   font-weight: bold;
@@ -119,38 +121,118 @@
   padding: 12px 24px;
   border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .offer-add-to-cart-btn:hover {
-  background: #333;
+  background: linear-gradient(135deg, #444, #000);
+  transform: scale(1.05);
 }
 
-/* Responsiveness */
-@media (max-width: 768px) {
+/* Modal Styles */
+.modal-content {
+  border-radius: 12px;
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.modal-footer .btn-secondary {
+  background: #333;
+  border: none;
+}
+
+.modal-footer .btn-secondary:hover {
+  background: #555;
+}
+
+/* ✅ RESPONSIVENESS */
+@media (max-width: 1024px) {
   .offer-slide {
     flex-direction: column;
+    text-align: center;
   }
 
   .offer-image {
     width: 100%;
-    height: 50%;
+    height: auto;
+    max-height: 300px;
   }
 
   .offer-details {
     width: 100%;
-    text-align: center;
+    padding: 20px;
   }
 
   .offer-item-title {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
   }
 
   .offer-description {
-    font-size: 1rem;
+    font-size: 0.95rem;
   }
 
   .offer-prices {
-    justify-content: center;
+    font-size: 1.1rem;
+  }
+
+  .offer-add-to-cart-btn {
+    width: 100%;
+    padding: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .offer-title {
+    font-size: 2rem;
+  }
+
+  .offer-description {
+    font-size: 0.9rem;
+  }
+
+  .offer-prices {
+    font-size: 1rem;
+  }
+
+  .offer-new-price {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .offer-title {
+    font-size: 1.8rem;
+  }
+
+  .offer-slide {
+    flex-direction: column;
+    padding: 15px;
+  }
+
+  .offer-image {
+    max-height: 250px;
+  }
+
+  .offer-item-title {
+    font-size: 1.4rem;
+  }
+
+  .offer-description {
+    font-size: 0.85rem;
+  }
+
+  .offer-prices {
+    font-size: 0.95rem;
+  }
+
+  .offer-add-to-cart-btn {
+    padding: 10px;
+    font-size: 0.9rem;
   }
 }

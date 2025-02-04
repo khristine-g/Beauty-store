@@ -1,6 +1,6 @@
 /* General container styling */
 .category-container {
-  padding: 3rem 2rem; /* Increased padding for a spacious layout */
+  padding: 3rem 2rem;
   background-color: #f9f9f9;
   text-align: center;
   margin-bottom: 100px;
@@ -8,40 +8,39 @@
 
 /* Title styling */
 .category-title {
-  font-size: 2rem; /* Large and bold for a modern feel */
+  font-size: 2rem;
   font-weight: 700;
-  color: #222; /* Darker color for better contrast */
+  color: #222;
   margin-bottom: 1rem;
-  font-family: 'Arial', sans-serif; /* Clean and modern font */
-  text-transform: uppercase; /* Sleek look */
-  letter-spacing: 1.5px; /* Spacing between letters */
+  font-family: 'Arial', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
   position: relative;
 }
 
-/* Line under title */
 .category-title::after {
-  content: ""; /* Empty content for the line */
-  display: block; /* Block-level element for line */
-  width: 80px; /* Centered line with fixed width */
-  height: 3px; /* Line height */
-  background-color: #555; /* Line color */
-  margin: 10px auto; /* Center the line below the title */
-  border-radius: 2px; /* Rounded edges */
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background-color: #555;
+  margin: 10px auto;
+  border-radius: 2px;
 }
 
 /* Subheader styling */
 .category-subheader {
-  font-size: 1.2rem; /* Larger font size for visibility */
-  color: #555; /* Subtle gray text */
+  font-size: 1.2rem;
+  color: #555;
   margin-bottom: 2rem;
-  font-family: 'Georgia', serif; /* Modern serif font for elegance */
-  line-height: 1.6; /* Spacing between lines */
-  max-width: 600px; /* Restrict width for readability */
+  font-family: 'Georgia', serif;
+  line-height: 1.6;
+  max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Buttons container styling */
+/* Buttons container */
 .category-buttons {
   display: flex;
   justify-content: center;
@@ -50,13 +49,11 @@
   margin-bottom: 2rem;
 }
 
-/* Individual button styling */
+/* Category button */
 .category-button {
   padding: 0.8rem 1.5rem;
   width: 150px;
   border-radius: 20px;
-  /* background: #f3f3f3;
-  border: 1px solid #ddd; */
   text-decoration: none;
   color: #555;
   font-size: 1rem;
@@ -66,15 +63,14 @@
 }
 
 .category-button:hover {
-  color:#bf4080;
- 
+  color: #bf4080;
 }
 
-/* Grid for categories */
+/* Category grid */
 .category-grid {
   display: grid;
-  grid-template-columns: repeat(6, 1fr); /* Default: 6 categories per row on large screens */
-  gap: 20px; /* Space between cards */
+  grid-template-columns: repeat(6, 1fr); /* Default: 6 per row */
+  gap: 20px;
   justify-content: center;
   max-width: 100%;
   margin: 0 auto;
@@ -82,7 +78,7 @@
   padding-bottom: 2rem;
 }
 
-/* Card styling */
+/* Category card */
 .category-card {
   position: relative;
   border-radius: 12px;
@@ -90,7 +86,7 @@
   cursor: pointer;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  max-width: 350px; /* Max width for each card */
+  max-width: 350px;
   margin: 0 auto;
 }
 
@@ -99,10 +95,10 @@
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Image styling */
+/* Category image */
 .category-image {
   width: 100%;
-  height: 200px; /* Fixed height for images */
+  height: 200px;
   object-fit: cover;
   border-radius: 12px;
 }
@@ -115,47 +111,47 @@
   font-family: 'Times New Roman', Times, serif;
 }
 
-/* Responsive design for smaller screens */
+/* Responsive Design */
 @media (max-width: 1024px) {
   .category-grid {
-    grid-template-columns: repeat(3, 1fr); /* 3 categories per row on medium screens */
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
   }
 }
 
 @media (max-width: 768px) {
   .category-grid {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr); /* 3 per row */
   }
 
   .category-title {
-    font-size: 2.5rem; /* Adjusted title size for smaller screens */
+    font-size: 2.5rem;
   }
 
   .category-subheader {
-    font-size: 1.2rem; /* Adjusted subheader size */
+    font-size: 1.2rem;
   }
 
   .category-button {
-    font-size: 0.9rem; /* Smaller button text */
+    font-size: 0.9rem;
     padding: 0.5rem 1rem;
   }
 }
 
 @media (max-width: 480px) {
   .category-grid {
-    grid-template-columns: 1fr; /* 1 category per row on very small screens */
+    grid-template-columns: repeat(2, 1fr); /* 2 per row */
   }
 
   .category-title {
-    font-size: 2rem; /* Further reduced title size */
+    font-size: 2rem;
   }
 
   .category-subheader {
-    font-size: 1rem; /* Smaller subheader size */
+    font-size: 1rem;
   }
 
   .category-button {
-    font-size: 0.8rem; /* Even smaller button text */
+    font-size: 0.8rem;
     padding: 0.5rem;
   }
 }

@@ -1,33 +1,26 @@
-import React, { useState } from "react";
+import React from "react";
 import { useNavigate } from "react-router-dom";
-import { products } from "./Data.js"; // Ensure this is the correct path for your data
+import { products } from "./Data.js";
 import "../ProductList.css";
 
 const ProductList = ({ selectedCategory, setCart }) => {
-  const [searchQuery, setSearchQuery] = useState(""); // State to manage search query
   const navigate = useNavigate();
 
-  // Filter products based on selected category or show all products if no category is selected
-  // Also filter products based on the search query
+  // Filter products based on the selected category
   const filteredProducts = selectedCategory
-    ? products.filter(
-        (product) =>
-          product.categoryId === selectedCategory.id &&
-          product.name.toLowerCase().includes(searchQuery.toLowerCase())
-      )
-    : products.filter((product) =>
-        product.name.toLowerCase().includes(searchQuery.toLowerCase())
-      ); // Filter by search query if no category is selected
+    ? products.filter((product) => product.categoryId === selectedCategory.id)
+    : products;
 
   // Only show the first 12 products
   const productsToDisplay = filteredProducts.slice(0, 12);
 
   const handleProductClick = (product) => {
-    // Navigate to the ProductInfo component with the selected product as state
     navigate("/product-info", { state: { product } });
   };
 
-  const handleQuickAdd = (product) => {
+  const handleQuickAdd = (product, e) => {
+    e.stopPropagation(); // Prevent navigation when clicking Quick Add
+
     try {
       const storedCart = localStorage.getItem("cart");
       const parsedCart = storedCart ? JSON.parse(storedCart) : [];
@@ -43,18 +36,14 @@ const ProductList = ({ selectedCategory, setCart }) => {
       }
 
       localStorage.setItem("cart", JSON.stringify(parsedCart));
-      setCart(parsedCart); // Update cart state
+      setCart(parsedCart);
     } catch (error) {
       console.error("Error updating cart:", error);
     }
   };
 
   const handleViewAll = () => {
-    navigate("/all-products"); // Navigate to the full products page
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value); // Update search query state
+    navigate("/all-products");
   };
 
   return (
@@ -65,19 +54,8 @@ const ProductList = ({ selectedCategory, setCart }) => {
           : "All Products"}
       </h2>
       <p className="product-subtext">
-        The World's Premium Brands In One Destination.
+        The World's Premium Brands In One Destination. Find the best deals here!
       </p>
-      
-      {/* Search Bar */}
-      <div className="search-container">
-        <input
-          type="text"
-          placeholder="Search for products..."
-          value={searchQuery}
-          onChange={handleSearchChange}
-          className="search-input"
-        />
-      </div>
 
       <div className="products-container">
         {productsToDisplay.length > 0 ? (
@@ -97,10 +75,7 @@ const ProductList = ({ selectedCategory, setCart }) => {
                 <p className="product-price">Ksh {product.price.toFixed(2)}</p>
                 <button
                   className="product-list-quick-add-btn"
-                  onClick={(e) => {
-                    e.stopPropagation(); // Prevent navigating to product details
-                    handleQuickAdd(product);
-                  }}
+                  onClick={(e) => handleQuickAdd(product, e)}
                 >
                   Quick Add
                 </button>
@@ -108,11 +83,10 @@ const ProductList = ({ selectedCategory, setCart }) => {
             </div>
           ))
         ) : (
-          <p>No products found matching your search.</p>
+          <p>No products found.</p>
         )}
       </div>
 
-      {/* View All button */}
       <div className="view-all-button-container">
         <button className="view-all-button" onClick={handleViewAll}>
           View All Products

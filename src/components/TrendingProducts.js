@@ -5,7 +5,7 @@ import { groups, items } from './Data2.js';
 
 const TrendingProducts = ({ setCart }) => {
   const [activeGroup, setActiveGroup] = useState('All');
-  const [searchTerm, setSearchTerm] = useState('');
+
   const navigate = useNavigate();
 
   const filteredItems = items
@@ -14,7 +14,7 @@ const TrendingProducts = ({ setCart }) => {
         activeGroup === 'All' ||
         item.categoryId === groups.find((group) => group.name === activeGroup)?.id
     )
-    .filter((item) => item.name.toLowerCase().includes(searchTerm.toLowerCase()));
+   
 
   const handleProductClick = (product) => {
     navigate('/product-info', { state: { product } });
@@ -39,16 +39,7 @@ const TrendingProducts = ({ setCart }) => {
     <div className="animate-on-scroll trending-products">
       <h1 className="title">Trending Products</h1>
 
-      {/* Search Bar */}
-      <div className="search-container">
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="Search for products..."
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
-      </div>
+
 
       {/* Group Links */}
       <div className="group-links">

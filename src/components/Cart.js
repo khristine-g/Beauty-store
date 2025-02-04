@@ -60,16 +60,16 @@ const Cart = ({ cart, onRemoveFromCart, onUpdateQuantity }) => {
           <div className="cart-details">
             <h3>Cart Details</h3>
             <div className="cart-summary-item">
-              <p>Total Price</p>
-              <p>ksh {calculateTotalPrice().toFixed(2)}</p>
+              <p  className='cart-price'> Total Price</p>
+              <p className='cart-price'>ksh {calculateTotalPrice().toFixed(2)}</p>
             </div>
             <div className="cart-summary-item">
-              <p>Delivery Charges</p>
-              <p>Free</p>
+              <p className='cart-price'>Delivery Charges</p>
+              <p className='cart-price'>Free</p>
             </div>
             <div className="cart-summary-item">
-              <p><strong>Total Amount</strong></p>
-              <p><strong>ksh {calculateTotalPrice().toFixed(2)}</strong></p>
+              <p className='cart-price'> <strong>Total Amount</strong></p>
+              <p className='cart-price'><strong>ksh {calculateTotalPrice().toFixed(2)}</strong></p>
             </div>
 
             <Link className="checkout-link" to="/checkout">
