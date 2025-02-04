@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "../Sales.css";
 
 const Sales = () => {
+  const navigate = useNavigate();
   const calculateTimeLeft = () => {
     const endTime = new Date("2025-02-14T00:00:00"); // Set your countdown end date
     const now = new Date();
@@ -29,6 +31,10 @@ const Sales = () => {
 
     return () => clearInterval(timer);
   }, []);
+
+  const handleViewAll = () => {
+    navigate("/all-products");
+  };
 
   return (
     <div className="sales-container">
@@ -67,7 +73,7 @@ const Sales = () => {
           Don't miss out on the biggest sale of the season! Grab your favorite
           items now.
         </p>
-        <button className="shop-now-btn">Shop Now</button>
+        <button className="shop-now-btn" onClick={handleViewAll}>Shop Now</button>
       </div>
     </div>
   );

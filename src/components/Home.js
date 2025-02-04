@@ -47,7 +47,7 @@ const Home = ({ onSelectCategory }) => {
 
   const handleClick= () =>{
 
-    navigate("/trending-products");
+    navigate("/all-products");
   }
 
   return (

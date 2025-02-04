@@ -53,13 +53,13 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 1500px;
-  height: 50vh;
+  height: 70vh;
   transition: transform 0.4s ease;
 }
 
 /* Product Image */
 .offer-image {
-  width: 300px;
+  width: 400px;
   margin: 10px;
  
   max-height: 500px;
@@ -85,7 +85,7 @@
 }
 
 .offer-description {
-  font-size: 1rem;
+  font-size: 1.2rem;
   color: #555;
   line-height: 1.6;
   font-family: 'Poppins', sans-serif;
@@ -124,6 +124,7 @@
   transition: all 0.3s ease;
   text-transform: uppercase;
   letter-spacing: 1px;
+  
 }
 
 .offer-add-to-cart-btn:hover {
