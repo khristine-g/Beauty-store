@@ -1,17 +1,18 @@
-True Beauty – Your Ultimate Beauty Shopping Destination ✨💄🌿
+TRUE BEAUTY – Your Ultimate Beauty Shopping Destination ✨💄🌿
+
 About the Project
-TRue Beauty is an elegant and feature-rich eCommerce platform built specifically for beauty and skincare enthusiasts. It provides a seamless shopping experience, allowing users to explore a wide range of makeup, skincare, haircare, and wellness products from top brands. The platform is designed with a modern, user-friendly interface that makes online shopping smooth, engaging, and enjoyable.
+True Beauty is an elegant and feature-rich eCommerce platform built specifically for beauty and skincare enthusiasts. It provides a seamless shopping experience, allowing users to explore a wide range of makeup, skincare, haircare, and wellness products from top brands. The platform is designed with a modern, user-friendly interface that makes online shopping smooth, engaging, and enjoyable.
 
 With secure authentication, easy checkout, and product reviews, customers can shop with confidence while discovering new beauty trends.
 
-Why True Beauty
+WHY TRUE BEAUTY?
 💖 Modern & Intuitive Design – A visually stunning UI that enhances the shopping experience.
 🛍️ Wide Range of Beauty Products – Explore a curated selection of high-quality beauty essentials.
 🛒 Smooth Shopping Experience – Add products to your cart and check out securely.
 💳 Secure Payments – Integrated with Stripe & PayPal for a hassle-free checkout.
 👩‍💻 Admin Dashboard – Manage products, orders, and users effortlessly.
 
-Core Features
+CORE FEATURES
 🏷️ Product Listings & Categories
 Users can browse an extensive collection of beauty products, conveniently categorized into Makeup, Skincare, Haircare, and Fragrances. Each product has high-quality images, detailed descriptions and pricing.
 
